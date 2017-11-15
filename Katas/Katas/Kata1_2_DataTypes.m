@@ -50,8 +50,72 @@
         NSLog(@"sChar3: %s", sChar3);
         
         
+        //int  = 2 or 4 bytes = -32,768 to 32,767 or -2,147,483,648 to 2,147,483,647
+        
+        int anInt0 = 327683456;
+        int anInt1 = -327683456;
+        int omega = 8;
+        
+        NSLog(@"anInt0: %i", anInt0);
+        NSLog(@"anInt1: %i", anInt1);
+        NSLog(@"omega: %i", omega);
+        
+        //unsigned int = 2 or 4 bytes = 0 to 65,535 or 0 to 4,294,967,295
+        
+        unsigned int uInt = 327683456;
+
+        NSLog(@"uInt: %i", uInt);
+        
+        //short = 2bytes = -32,768 to 32,767
+        
+        short aShort = 32768;
+        short aShort2 = -32768;
+
+        NSLog(@"aShort: %i", aShort);
+        NSLog(@"aShort2: %i", aShort2);
+        
+        //unsigned short = 2bytes = 0 to 65,535
+        
+        unsigned short aShort3 = 32768;
+        
+        NSLog(@"aShort3: %i", aShort3);
+        
+        //long = 4bytes = -2,147,483,648 to 2,147,483,647
+        
+        long aLong = 327683456327683456;
+        long aLong1 = -327683456327683456;
+
+        NSLog(@"aLong: %li",aLong);
+
+        NSLog(@"aLong1: %li",aLong1);
+        
+        //unsigned long  = 4bytes = 0 to 4,294,967,295
+        unsigned long anULong =  327683456327683456;
+        
+        NSLog(@"anULong: %li",anULong);
+        
 
         //-floating point types:
+
+        //float = 4 bytes =	1.2E-38 to 3.4E+38	6 decimal places
+        
+        float aFloat1 = 4.1;
+        float aFloat2 = -4.1;
+        
+        NSLog(@"aFloat1: %f",aFloat1);
+        NSLog(@"aFloat2: %f",aFloat2);
+        
+        //double = 8bytes = 2.3E-308 to 1.7E+308	15 decimal places
+        
+        double aDouble = 3445651233434.123123123123345345123;
+        
+        NSLog(@"aDouble: %f",aDouble);
+        
+        // long double = 10 byte = 3.4E-4932 to 1.1E+4932	19 decimal places
+
+        long double aLDouble = 3445651233434334.12312312312334534512333434;
+        
+        NSLog(@"aLDouble: %Lf",aLDouble);
         
     }
 
