@@ -1,0 +1,286 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EB4E7EE91D9AD4C6009B4C0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4E7EE81D9AD4C6009B4C0D /* main.m */; };
+		EB4E7EF41D9C2F00009B4C0D /* Kata2_Arrays.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4E7EF31D9C2F00009B4C0D /* Kata2_Arrays.m */; };
+		EB4E7EF61D9C3464009B4C0D /* Kata1_DataTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4E7EF51D9C3464009B4C0D /* Kata1_DataTypes.m */; };
+		EB4E7EF81D9D82A5009B4C0D /* Kata3_LinkedLists.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4E7EF71D9D82A5009B4C0D /* Kata3_LinkedLists.m */; };
+		EB4E7EFA1D9D9B90009B4C0D /* Kata4_Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4E7EF91D9D9B90009B4C0D /* Kata4_Stack.m */; };
+		EB4E7EFC1D9DAC88009B4C0D /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4E7EFB1D9DAC88009B4C0D /* Node.m */; };
+		EB68E9E31DA2E12F00734F16 /* Kata5_BinaryTree.m in Sources */ = {isa = PBXBuildFile; fileRef = EB68E9E21DA2E12F00734F16 /* Kata5_BinaryTree.m */; };
+		EB68E9E61DA6CE6600734F16 /* Kata6_Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = EB68E9E51DA6CE6500734F16 /* Kata6_Dictionary.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EB4E7EE31D9AD4C6009B4C0D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		EB4E7EE51D9AD4C6009B4C0D /* Katas */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Katas; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB4E7EE81D9AD4C6009B4C0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EB4E7EF21D9C2E90009B4C0D /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
+		EB4E7EF31D9C2F00009B4C0D /* Kata2_Arrays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kata2_Arrays.m; sourceTree = "<group>"; };
+		EB4E7EF51D9C3464009B4C0D /* Kata1_DataTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kata1_DataTypes.m; sourceTree = "<group>"; };
+		EB4E7EF71D9D82A5009B4C0D /* Kata3_LinkedLists.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kata3_LinkedLists.m; sourceTree = "<group>"; };
+		EB4E7EF91D9D9B90009B4C0D /* Kata4_Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kata4_Stack.m; sourceTree = "<group>"; };
+		EB4E7EFB1D9DAC88009B4C0D /* Node.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Node.m; sourceTree = "<group>"; };
+		EB68E9E21DA2E12F00734F16 /* Kata5_BinaryTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kata5_BinaryTree.m; sourceTree = "<group>"; };
+		EB68E9E41DA6C92100734F16 /* Kata1.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Kata1.playground; path = ../Kata1.playground; sourceTree = "<group>"; };
+		EB68E9E51DA6CE6500734F16 /* Kata6_Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kata6_Dictionary.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EB4E7EE21D9AD4C6009B4C0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EB4E7EDC1D9AD4C6009B4C0D = {
+			isa = PBXGroup;
+			children = (
+				EB4E7EE71D9AD4C6009B4C0D /* Katas */,
+				EB4E7EE61D9AD4C6009B4C0D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EB4E7EE61D9AD4C6009B4C0D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB4E7EE51D9AD4C6009B4C0D /* Katas */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB4E7EE71D9AD4C6009B4C0D /* Katas */ = {
+			isa = PBXGroup;
+			children = (
+				EB68E9E41DA6C92100734F16 /* Kata1.playground */,
+				EB4E7EE81D9AD4C6009B4C0D /* main.m */,
+				EB4E7EF21D9C2E90009B4C0D /* main.h */,
+				EB4E7EF31D9C2F00009B4C0D /* Kata2_Arrays.m */,
+				EB4E7EF51D9C3464009B4C0D /* Kata1_DataTypes.m */,
+				EB4E7EF71D9D82A5009B4C0D /* Kata3_LinkedLists.m */,
+				EB4E7EF91D9D9B90009B4C0D /* Kata4_Stack.m */,
+				EB4E7EFB1D9DAC88009B4C0D /* Node.m */,
+				EB68E9E21DA2E12F00734F16 /* Kata5_BinaryTree.m */,
+				EB68E9E51DA6CE6500734F16 /* Kata6_Dictionary.m */,
+			);
+			path = Katas;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EB4E7EE41D9AD4C6009B4C0D /* Katas */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB4E7EEC1D9AD4C6009B4C0D /* Build configuration list for PBXNativeTarget "Katas" */;
+			buildPhases = (
+				EB4E7EE11D9AD4C6009B4C0D /* Sources */,
+				EB4E7EE21D9AD4C6009B4C0D /* Frameworks */,
+				EB4E7EE31D9AD4C6009B4C0D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Katas;
+			productName = Katas;
+			productReference = EB4E7EE51D9AD4C6009B4C0D /* Katas */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EB4E7EDD1D9AD4C6009B4C0D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Pedro Trujillo";
+				TargetAttributes = {
+					EB4E7EE41D9AD4C6009B4C0D = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = EB4E7EE01D9AD4C6009B4C0D /* Build configuration list for PBXProject "Katas" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EB4E7EDC1D9AD4C6009B4C0D;
+			productRefGroup = EB4E7EE61D9AD4C6009B4C0D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EB4E7EE41D9AD4C6009B4C0D /* Katas */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EB4E7EE11D9AD4C6009B4C0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB4E7EE91D9AD4C6009B4C0D /* main.m in Sources */,
+				EB68E9E61DA6CE6600734F16 /* Kata6_Dictionary.m in Sources */,
+				EB4E7EF61D9C3464009B4C0D /* Kata1_DataTypes.m in Sources */,
+				EB4E7EFA1D9D9B90009B4C0D /* Kata4_Stack.m in Sources */,
+				EB4E7EF41D9C2F00009B4C0D /* Kata2_Arrays.m in Sources */,
+				EB68E9E31DA2E12F00734F16 /* Kata5_BinaryTree.m in Sources */,
+				EB4E7EF81D9D82A5009B4C0D /* Kata3_LinkedLists.m in Sources */,
+				EB4E7EFC1D9DAC88009B4C0D /* Node.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EB4E7EEA1D9AD4C6009B4C0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		EB4E7EEB1D9AD4C6009B4C0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		EB4E7EED1D9AD4C6009B4C0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EB4E7EEE1D9AD4C6009B4C0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EB4E7EE01D9AD4C6009B4C0D /* Build configuration list for PBXProject "Katas" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB4E7EEA1D9AD4C6009B4C0D /* Debug */,
+				EB4E7EEB1D9AD4C6009B4C0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB4E7EEC1D9AD4C6009B4C0D /* Build configuration list for PBXNativeTarget "Katas" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB4E7EED1D9AD4C6009B4C0D /* Debug */,
+				EB4E7EEE1D9AD4C6009B4C0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EB4E7EDD1D9AD4C6009B4C0D /* Project object */;
+}
