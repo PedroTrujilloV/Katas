@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		376205CA1FBBC4B4005F06EA /* Kata1_2_DataTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 376205C91FBBC4B4005F06EA /* Kata1_2_DataTypes.m */; };
 		EB4E7EE91D9AD4C6009B4C0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4E7EE81D9AD4C6009B4C0D /* main.m */; };
 		EB4E7EF41D9C2F00009B4C0D /* Kata2_Arrays.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4E7EF31D9C2F00009B4C0D /* Kata2_Arrays.m */; };
 		EB4E7EF61D9C3464009B4C0D /* Kata1_DataTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4E7EF51D9C3464009B4C0D /* Kata1_DataTypes.m */; };
@@ -30,6 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		376205C91FBBC4B4005F06EA /* Kata1_2_DataTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kata1_2_DataTypes.m; sourceTree = "<group>"; };
 		EB4E7EE51D9AD4C6009B4C0D /* Katas */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Katas; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4E7EE81D9AD4C6009B4C0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB4E7EF21D9C2E90009B4C0D /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				EB4E7EF21D9C2E90009B4C0D /* main.h */,
 				EB4E7EF31D9C2F00009B4C0D /* Kata2_Arrays.m */,
 				EB4E7EF51D9C3464009B4C0D /* Kata1_DataTypes.m */,
+				376205C91FBBC4B4005F06EA /* Kata1_2_DataTypes.m */,
 				EB4E7EF71D9D82A5009B4C0D /* Kata3_LinkedLists.m */,
 				EB4E7EF91D9D9B90009B4C0D /* Kata4_Stack.m */,
 				EB4E7EFB1D9DAC88009B4C0D /* Node.m */,
@@ -152,6 +155,7 @@
 				EB68E9E31DA2E12F00734F16 /* Kata5_BinaryTree.m in Sources */,
 				EB4E7EF81D9D82A5009B4C0D /* Kata3_LinkedLists.m in Sources */,
 				EB4E7EFC1D9DAC88009B4C0D /* Node.m in Sources */,
+				376205CA1FBBC4B4005F06EA /* Kata1_2_DataTypes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

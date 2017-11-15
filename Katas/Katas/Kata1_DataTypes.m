@@ -18,6 +18,8 @@
         
         int myNumber2 = 2;
         
+        
+        
         myNumber = 3;
         
         int myNumber3 = myNumber + myNumber2;

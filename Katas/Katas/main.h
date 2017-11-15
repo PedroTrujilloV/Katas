@@ -15,6 +15,12 @@
     
 @end
 
+@interface Kata1_2_DataTypes : NSObject
+
+    - (void) introductionToDataTypes2;
+
+@end
+
 @interface Kata2_Arrays : NSObject
     
     - (void) introductionToArrays;

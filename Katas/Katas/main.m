@@ -20,6 +20,10 @@ int main(int argc, const char * argv[]) {
         
         //[kata1 introductionToDataTypes];
         
+        Kata1_2_DataTypes *kata2  = [[Kata1_2_DataTypes alloc] init];
+
+        [kata2 introductionToDataTypes2];
+        
         //Arrays
         
         //Kata2_Arrays *kata2 = [[Kata2_Arrays alloc]init];
@@ -52,9 +56,9 @@ int main(int argc, const char * argv[]) {
         
         //[kata5 treeImplementation];
         
-        Kata6_Dictionary * kata6 = [[Kata6_Dictionary alloc]init];
+//        Kata6_Dictionary * kata6 = [[Kata6_Dictionary alloc]init];
         
-        [kata6 dictionaryImplementation];
+//        [kata6 dictionaryImplementation];
         
        
     }
