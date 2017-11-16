@@ -8,6 +8,14 @@
 
 #import "main.h"
 
+#define CONS_CHAR 'e'
+#define CONS_INT 23
+#define CONST_UINT 23u
+#define CONST_LONG 34l
+#define CONST_ULONG 45ul
+
+#define CONST_HEX 0x939EB2
+#define CONST_FLOAT 3.141516
 
 @implementation Kata1_2_DataTypes
     -(void) introductionToDataTypes2
@@ -22,6 +30,8 @@
         char bravo;
         bravo = 'b';
         char charlie[3] = {alpha, bravo, 'c'};
+        
+        
         
         NSLog(@"alpha is: %c",alpha);
         NSLog(@"bravo is: %c",bravo);
