@@ -54,7 +54,7 @@
     }
 
 // get array as parameter way 1
-- (void)printArrayWay1: (int [])anArray andLength:(int)length
+    - (void)printArrayWay1: (int [])anArray andLength:(int)length
     {
         
         for(int i =0; i < length; i++)
@@ -62,18 +62,18 @@
             NSLog(@"anArrayW1[%i]: %i",i, anArray[i]);
         }
     }
-// get array as parameter way 2
 
--(void) printArrayWay2: (float*)anArray andLength:(int)lenght
+// get array as parameter way 2
+    -(void) printArrayWay2: (float*)anArray andLength:(int)lenght
     {
         for(int i =0; i < lenght; i++)
         {
             NSLog(@"anArrayW2[%i]: %f",i, anArray[i]);
         }
     }
-// get array as parameter way 3
 
--(void) printArrayWay3: (double [3][5])anArray
+// get array as parameter way 3
+    -(void) printArrayWay3: (double [3][5])anArray
     {
         for( int i = 0; i < 3; i++)
         {
@@ -84,9 +84,9 @@
             
         }
     }
-//return array from function
 
-- (float *) getANewArray: (float *)anArray andLength:(int)length
+//return array from function
+    - (float *) getANewArray: (float *)anArray andLength:(int)length
     {
         
         //static because objective c does not recomend send address of local variables outside
