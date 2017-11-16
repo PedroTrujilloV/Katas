@@ -40,7 +40,8 @@ int main(int argc, const char * argv[]) {
         
         Kata2_2_Arrays * kata2_2 = [[Kata2_2_Arrays alloc]init];
         
-        [kata2_2 introductionToArrays2];
+        //[kata2_2 introductionToArrays2];
+        [kata2_2 nsMutableArrays];
         
         //Linked Lists
         

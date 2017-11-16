@@ -101,4 +101,26 @@
         return anOtherArray;
     }
 
+    -(void) nsMutableArrays
+    {
+        NSArray * aNSArray = [[NSArray alloc]init];
+        
+        NSMutableArray * aNSMutableArray = [[NSMutableArray alloc] init];
+        
+        [aNSMutableArray addObject:@"Hello"];
+        [aNSMutableArray addObject:@1];
+        [aNSMutableArray addObject:@3.141516];
+        [aNSMutableArray addObject:@'a'];
+        
+        [aNSArray arrayByAddingObjectsFromArray:(NSArray*)aNSMutableArray];
+        
+        NSLog(@" aNSArray: %@",aNSArray);
+        
+        for (NSObject * obj in aNSArray)
+        {
+            NSLog(@"An object: %@",obj);
+        }
+        
+    }
+
 @end
