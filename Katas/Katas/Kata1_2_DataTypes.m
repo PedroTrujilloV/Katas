@@ -5,6 +5,9 @@
 //  Created by Pedro Trujillo on 11/14/17.
 //  Copyright © 2017 Pedro Trujillo. All rights reserved.
 //
+// sources:
+// [ 1 ]: http://wiring.org.co/reference/es/byte.html
+// [ 2 ]: https://stackoverflow.com/questions/6702923/do-nsdouble-nsfloat-or-other-types-than-nsinteger-exist
 
 #import "main.h"
 
@@ -145,7 +148,30 @@
         NSLog(@"sizeof(long double): %lu bytes",sizeof(long double));
         
         
+        // others:
         
+        // byte =  8 bits = 0 to 255 // ideal for send information and serial comunication [ 1 ]
+        
+        Byte aBite = 24;
+        NSLog(@"aBite: %hhu",aBite);
+        NSLog(@"sizeof(Byte): %lu byte",sizeof(Byte));
+        
+        int32_t int32Bit = 34;
+        NSLog(@"int32Bit: %d",int32Bit);
+        NSLog(@"sizeof(int32_t): %lu bytes",sizeof(int32_t));
+        
+        int64_t int64Bit = 345;
+        NSLog(@"int64Bit: %lld",int64Bit);
+        NSLog(@"sizeof(int64_t): %lu bytes",sizeof(int64_t));
+        
+        //NSInteger exists because the int type varies in size between 32-bit and 64-bit systems. float and double don't vary in size the same way, so there's no need to have wrapper types for them. [ 2 ]
+        NSInteger nsInteger = 24;
+        NSLog(@"nsInteger: %ld",(long)nsInteger);
+        NSLog(@"sizeof(NSInteger): %lu bytes",sizeof(NSInteger));
+        
+        CGFloat cgFloat = 23.0;
+        NSLog(@"cgFloat: %f",cgFloat);
+        NSLog(@"sizeof(CGFloat): %lu bytes",sizeof(CGFloat));
         
     }
 

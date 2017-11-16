@@ -31,6 +31,12 @@
     
 @end
 
+@interface Kata2_2_Arrays : NSObject
+
+    - (void) introductionToArrays2;
+
+@end
+
 @interface Kata3_LinkedLists : NSObject
     
     - (void) implementationOfLLInOC;

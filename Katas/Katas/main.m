@@ -20,9 +20,9 @@ int main(int argc, const char * argv[]) {
         
         //[kata1 introductionToDataTypes];
         
-        Kata1_2_DataTypes *kata2  = [[Kata1_2_DataTypes alloc] init];
+        //Kata1_2_DataTypes *kata1_2  = [[Kata1_2_DataTypes alloc] init];
 
-        [kata2 introductionToDataTypes2];
+        //[kata1_2 introductionToDataTypes2];
         
         //Arrays
         
@@ -37,6 +37,10 @@ int main(int argc, const char * argv[]) {
         //[kata2 sortingArrays];
         
         //[kata2 subdividingArrays];
+        
+        Kata2_2_Arrays * kata2_2 = [[Kata2_2_Arrays alloc]init];
+        
+        [kata2_2 introductionToArrays2];
         
         //Linked Lists
         
