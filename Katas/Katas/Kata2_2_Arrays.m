@@ -137,11 +137,15 @@
             NSLog(@"aNSMA2[%i]: %@",i,aNSMA2[i]);
         }
         
+        // make a copy of aNSMA2 on aNSMA3
         NSMutableArray *aNSMA3 = [NSMutableArray arrayWithArray:aNSMA2];
+        
+        //remove elements that exist in aNSMA3
         for( NSObject * obj in aNSMA3)
         {
             [aNSMA2 removeObject:obj];
         }
+        
         NSLog(@"aNSMA2: %@",aNSMA2);
         NSLog(@"aNSMA3: %@",aNSMA3);
 
