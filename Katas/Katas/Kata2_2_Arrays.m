@@ -112,7 +112,7 @@
         [aNSMutableArray addObject:@3.141516];
         [aNSMutableArray addObject:@'a'];
         
-        [aNSArray arrayByAddingObjectsFromArray:(NSArray*)aNSMutableArray];
+        aNSArray = (NSArray*)aNSMutableArray;//
         
         NSLog(@" aNSArray: %@",aNSArray);
         
@@ -121,6 +121,30 @@
             NSLog(@"An object: %@",obj);
         }
         
+        NSArray * aNSArray2 = [NSMutableArray arrayWithObjects:@1,@2,@3,@4, nil];
+        NSMutableArray * aNSMA2 = [[NSMutableArray alloc]init];
+        
+        
+        // using for loop get int from NSArray, multiply by 3 and push it into NSMutableArray
+        for(int i=0; i< [aNSArray2 count]; i++)
+        {
+            int aIntValue = [[aNSArray2 objectAtIndex:i] intValue] * 3;
+            
+            NSNumber * NumberWraper = [NSNumber numberWithInt:aIntValue];
+            
+            [aNSMA2 addObject:NumberWraper];
+            
+            NSLog(@"aNSMA2[%i]: %@",i,aNSMA2[i]);
+        }
+        
+        NSMutableArray *aNSMA3 = [NSMutableArray arrayWithArray:aNSMA2];
+        for( NSObject * obj in aNSMA3)
+        {
+            [aNSMA2 removeObject:obj];
+        }
+        NSLog(@"aNSMA2: %@",aNSMA2);
+        NSLog(@"aNSMA3: %@",aNSMA3);
+
     }
 
 @end
