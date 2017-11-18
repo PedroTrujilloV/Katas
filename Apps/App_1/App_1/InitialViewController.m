@@ -76,14 +76,14 @@
 - (BOOL) logIn: (NSString*) greetingName
 {
     
-    if([_nameUITextField isEqual:@""] && [_aUITextField isEqual:@""])
+    if(![_nameUITextField.text  isEqual: @""] && ![_aUITextField.text  isEqual: @""])
     {
         NSString * nameString = [_nameUITextField text];
         
         //split string by " "
-        NSArray * greetingArray = [NSArray arrayWithObjects: [nameString componentsSeparatedByString:@" "], nil];
+        NSArray * greetingArray = [nameString componentsSeparatedByString:@" "];
         // geting agent name in splited array[1]
-        NSString * agentName = [greetingArray objectAtIndex:1];
+        NSString * agentName =  [greetingArray objectAtIndex:1];
         // concatenate agent name with "Good evening, Agent"
         _aUILabel.text  = [NSMutableString stringWithFormat:@"Good evening, Agent %@", agentName];
         _aUITextView.text = [NSString stringWithFormat:@"This mission will be and arduous one, fraught with peril. You will cover much strange and unfamiliar territory. Should you choose to accept this mission, Agent %@, you will certainly be disavowed, but you will be doing your country a great service. This message will self destruct in 5 seconds.", agentName];
