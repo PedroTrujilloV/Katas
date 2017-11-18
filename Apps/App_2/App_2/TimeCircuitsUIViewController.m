@@ -17,12 +17,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    _datePickerString = @"";
+    
+    _timeNSDateFormater = [[NSDateFormatter alloc]init];
+    
+    _timeNSDateFormater.dateStyle = NSDateFormatterMediumStyle;
+    _timeNSDateFormater.timeStyle =  NSDateFormatterNoStyle;
+    
+    _datePickerString = [_timeNSDateFormater stringFromDate:_timeUIDatePicker.date];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma IBActions:
+
+-(IBAction)datePickerChanged:(id)UIDatePicker
+{
+    _datePickerString = [_timeNSDateFormater stringFromDate:_timeUIDatePicker.date];
 }
 
 /*

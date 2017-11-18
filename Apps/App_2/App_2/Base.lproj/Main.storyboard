@@ -135,10 +135,10 @@
             </objects>
             <point key="canvasLocation" x="1130.625" y="-68.661971830985919"/>
         </scene>
-        <!--View Controller-->
+        <!--Time CircuitsUI View Controller-->
         <scene sceneID="ylk-Ou-feQ">
             <objects>
-                <viewController id="mKc-Wp-CUZ" sceneMemberID="viewController">
+                <viewController id="mKc-Wp-CUZ" customClass="TimeCircuitsUIViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xGy-OQ-dyU"/>
                         <viewControllerLayoutGuide type="bottom" id="oYd-fc-mNc"/>
@@ -147,7 +147,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bzh-Nj-H6o">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bzh-Nj-H6o">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <date key="date" timeIntervalSinceReferenceDate="532729173.11565399">
                                     <!--2017-11-18 20:19:33 +0000-->
