@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainUIViewController : UIViewController
+@interface MainUIViewController : UIViewController <UITextFieldDelegate>
+
+    @property (nonatomic,weak) IBOutlet UILabel * destinationTimeUILabel;
+    @property (nonatomic,weak) IBOutlet UILabel * presentTImeUILabel;
+    @property (nonatomic,weak) IBOutlet UILabel * lastTimeDepartedUILabel;
+    @property (nonatomic,weak) IBOutlet UILabel * speedUILabel;
+    @property (nonatomic,weak) IBOutlet UIButton * setDestinationTimeUIButton;
+    @property (nonatomic,weak) IBOutlet UIButton * travelBackUIButton;
 
 @end
