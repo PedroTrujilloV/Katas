@@ -14,14 +14,26 @@
 
 @implementation InitialViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    _nameUITextField.text = @"";
+    _aUITextField.text = @"";
+    _aUILabel.text = @"";
+    _aUITextView.text = @"Please sing in to get the gif!, Por favor ingrese para recibir el regalo!";
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)  textFieldShouldReturn:(UITextField *)textField
+{
+    
+    return false;
 }
 
 /*
@@ -33,5 +45,36 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - Functions
+
+- (BOOL) logIn: (NSString*) greetingName
+{
+    
+    if([_nameUITextField isEqual:@""] && [_aUITextField isEqual:@""])
+    {
+        NSString * aString = [_nameUITextField text];
+        
+        //split string by " "
+        NSArray * greetingArray = [NSArray arrayWithObjects: [aString componentsSeparatedByString:@" "], nil];
+        // geting agent name in splited array[1]
+        NSString * agentName = [greetingArray objectAtIndex:1];
+        // concatenate agent name with "Good evening, Agent"
+        _aUILabel.text  = [NSMutableString stringWithFormat:@"Good evening, Agent %@", agentName];
+        _aUITextView.text = [NSString stringWithFormat:@"This mission will be and arduous one, fraught with peril. You will cover much strange and unfamiliar territory. Should you choose to accept this mission, Agent %@, you will certainly be disavowed, but you will be doing your country a great service. This message will self destruct in 5 seconds.", agentName];
+        
+//        
+//        view.backgroundColor = UIColor(red: 0.585, green: 0.78, blue: 0.188, alpha: 1.0)
+//        
+        return true;
+    }
+    
+//    view.backgroundColor = UIColor(red: 0.78, green: 0.188, blue: 0.188, alpha: 1.0)
+    
+    _aUITextView.text = @"Please sing in to get the gif!, Por favor ingrese para recibir el regalo!";
+    
+    
+    return false;
+}
 
 @end

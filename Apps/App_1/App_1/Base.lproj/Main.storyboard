@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Initial View Controller-->
         <scene sceneID="75N-gf-SvC">
             <objects>
-                <viewController id="Jpw-T1-Qeh" sceneMemberID="viewController">
+                <viewController id="Jpw-T1-Qeh" customClass="InitialViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UtF-8Z-vJG"/>
                         <viewControllerLayoutGuide type="bottom" id="RS1-x4-pXy"/>
@@ -30,8 +30,8 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLc-ax-ILY">
-                                <rect key="frame" x="137" y="120" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="120.5" y="120" width="79" height="30"/>
+                                <state key="normal" title="Autenticate"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhv-rV-QY1">
                                 <rect key="frame" x="139" y="165" width="42" height="21"/>
@@ -46,22 +46,38 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1SZ-lr-stk">
+                                <rect key="frame" x="32" y="32" width="256" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rsV-TO-syk" firstAttribute="centerX" secondItem="exU-HD-wp6" secondAttribute="centerX" id="295-3M-Tyc"/>
                             <constraint firstItem="Uhv-rV-QY1" firstAttribute="centerX" secondItem="exU-HD-wp6" secondAttribute="centerX" id="B1o-7h-JH2"/>
                             <constraint firstItem="uLc-ax-ILY" firstAttribute="top" secondItem="rsV-TO-syk" secondAttribute="bottom" constant="20" id="GBG-9t-mJf"/>
-                            <constraint firstItem="rsV-TO-syk" firstAttribute="top" secondItem="UtF-8Z-vJG" secondAttribute="bottom" constant="50" id="GQ1-NE-qQW"/>
                             <constraint firstItem="uLc-ax-ILY" firstAttribute="centerX" secondItem="exU-HD-wp6" secondAttribute="centerX" id="PEf-65-9Qg"/>
+                            <constraint firstItem="rsV-TO-syk" firstAttribute="top" secondItem="1SZ-lr-stk" secondAttribute="bottom" constant="8" id="R7K-UP-Z1M"/>
                             <constraint firstItem="9IV-Hf-wuU" firstAttribute="leading" secondItem="exU-HD-wp6" secondAttribute="leadingMargin" constant="24" id="S7t-Vy-eKa"/>
+                            <constraint firstItem="1SZ-lr-stk" firstAttribute="top" secondItem="UtF-8Z-vJG" secondAttribute="bottom" constant="12" id="SMY-PF-5eT"/>
                             <constraint firstItem="9IV-Hf-wuU" firstAttribute="centerX" secondItem="Uhv-rV-QY1" secondAttribute="centerX" id="V1N-as-V9r"/>
                             <constraint firstItem="RS1-x4-pXy" firstAttribute="top" secondItem="9IV-Hf-wuU" secondAttribute="bottom" constant="15" id="VgG-KF-z9P"/>
                             <constraint firstItem="9IV-Hf-wuU" firstAttribute="top" secondItem="Uhv-rV-QY1" secondAttribute="bottom" constant="8" symbolic="YES" id="cfl-ka-On8"/>
+                            <constraint firstItem="1SZ-lr-stk" firstAttribute="width" secondItem="exU-HD-wp6" secondAttribute="width" multiplier="80%" id="jy0-ox-IW3"/>
+                            <constraint firstItem="1SZ-lr-stk" firstAttribute="centerX" secondItem="exU-HD-wp6" secondAttribute="centerX" id="oiW-rz-lKX"/>
                             <constraint firstItem="rsV-TO-syk" firstAttribute="width" secondItem="exU-HD-wp6" secondAttribute="width" multiplier="80%" constant="1" id="pqB-qc-fsB"/>
                             <constraint firstItem="Uhv-rV-QY1" firstAttribute="top" secondItem="uLc-ax-ILY" secondAttribute="bottom" constant="15" id="xgG-cX-obU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="aUIButton" destination="uLc-ax-ILY" id="wg9-tw-rBZ"/>
+                        <outlet property="aUILabel" destination="Uhv-rV-QY1" id="LEQ-WD-nyy"/>
+                        <outlet property="aUITextField" destination="rsV-TO-syk" id="eOp-Ag-7K2"/>
+                        <outlet property="aUITextView" destination="9IV-Hf-wuU" id="r3P-c0-wNA"/>
+                        <outlet property="nameUITextField" destination="1SZ-lr-stk" id="1dQ-0L-7Gj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FgX-p7-hxr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

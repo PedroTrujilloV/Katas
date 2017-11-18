@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InitialViewController : UIViewController
+@interface InitialViewController : UIViewController<UITextFieldDelegate>
 
-    @property (weak) IBOutlet UITextField * aUITextField;
-    @property (weak) IBOutlet UIButton * aUIButton;
-    @property (weak) IBOutlet UILabel * aUILabel;
-    @property (weak) IBOutlet UITextView * aUITextView;
+    @property (nonatomic, weak) IBOutlet UITextField * nameUITextField;
+    @property (nonatomic, weak) IBOutlet UITextField * aUITextField;
+    @property (nonatomic,weak) IBOutlet UIButton * aUIButton;
+    @property (nonatomic,weak) IBOutlet UILabel * aUILabel;
+    @property (nonatomic, weak) IBOutlet UITextView * aUITextView;
 
 @end
