@@ -8,13 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainUIViewController : UIViewController <UITextFieldDelegate>
+@interface MainUIViewController : UIViewController
 
+#pragma Variables:
     @property (nonatomic,weak) IBOutlet UILabel * destinationTimeUILabel;
     @property (nonatomic,weak) IBOutlet UILabel * presentTImeUILabel;
     @property (nonatomic,weak) IBOutlet UILabel * lastTimeDepartedUILabel;
     @property (nonatomic,weak) IBOutlet UILabel * speedUILabel;
     @property (nonatomic,weak) IBOutlet UIButton * setDestinationTimeUIButton;
     @property (nonatomic,weak) IBOutlet UIButton * travelBackUIButton;
+
+    @property NSDateFormatter * aNSDateFormater;
+    @property NSDate * currentDate;
+    @property int * currentSpeed;
+    @property NSString * lastTimeDeparture;
+    @property NSTimer * timerBack;
+
 
 @end

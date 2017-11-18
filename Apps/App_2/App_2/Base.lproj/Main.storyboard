@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--MainUI View Controller-->
         <scene sceneID="11I-zR-0ZY">
             <objects>
-                <viewController id="vcA-0x-vd9" sceneMemberID="viewController">
+                <viewController id="vcA-0x-vd9" customClass="MainUIViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7nz-Og-CT9"/>
                         <viewControllerLayoutGuide type="bottom" id="cZg-lN-pIw"/>
@@ -28,9 +28,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan 01 2000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWa-Qj-B7a">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan 01 2000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWa-Qj-B7a">
                                 <rect key="frame" x="112.5" y="63" width="95" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -40,8 +40,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov 18 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kf2-rN-gQz">
-                                <rect key="frame" x="113" y="129" width="94.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov 13 2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kf2-rN-gQz">
+                                <rect key="frame" x="113" y="129" width="95" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -118,6 +118,14 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="destinationTimeUILabel" destination="SWa-Qj-B7a" id="Jay-yn-kol"/>
+                        <outlet property="lastTimeDepartedUILabel" destination="bBe-mG-UoA" id="qPi-97-Z5x"/>
+                        <outlet property="presentTImeUILabel" destination="kf2-rN-gQz" id="PKO-ZM-Y3L"/>
+                        <outlet property="setDestinationTimeUIButton" destination="1AE-Cz-IJL" id="ShQ-Wg-O6c"/>
+                        <outlet property="speedUILabel" destination="bzQ-OU-MjD" id="epV-TB-Iqc"/>
+                        <outlet property="travelBackUIButton" destination="tZ3-Q3-yhG" id="4yB-IH-ZpN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qh1-eD-Wpu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

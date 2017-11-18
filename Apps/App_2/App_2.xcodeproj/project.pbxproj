@@ -15,6 +15,7 @@
 		37A535A31FBFF3B40036A248 /* App_2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A535A21FBFF3B40036A248 /* App_2Tests.m */; };
 		37A535AE1FBFF3B40036A248 /* App_2UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A535AD1FBFF3B40036A248 /* App_2UITests.m */; };
 		37A535BD1FBFF5B40036A248 /* MainUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A535BC1FBFF5B40036A248 /* MainUIViewController.m */; };
+		37B330811FC0CC1500500484 /* TimeCircuitsUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B330801FC0CC1500500484 /* TimeCircuitsUIViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		37A535AF1FBFF3B40036A248 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37A535BB1FBFF5B40036A248 /* MainUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainUIViewController.h; sourceTree = "<group>"; };
 		37A535BC1FBFF5B40036A248 /* MainUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainUIViewController.m; sourceTree = "<group>"; };
+		37B3307F1FC0CC1500500484 /* TimeCircuitsUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeCircuitsUIViewController.h; sourceTree = "<group>"; };
+		37B330801FC0CC1500500484 /* TimeCircuitsUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeCircuitsUIViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				37A535881FBFF3B40036A248 /* Supporting Files */,
 				37A535BB1FBFF5B40036A248 /* MainUIViewController.h */,
 				37A535BC1FBFF5B40036A248 /* MainUIViewController.m */,
+				37B3307F1FC0CC1500500484 /* TimeCircuitsUIViewController.h */,
+				37B330801FC0CC1500500484 /* TimeCircuitsUIViewController.m */,
 			);
 			path = App_2;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 				37A535BD1FBFF5B40036A248 /* MainUIViewController.m in Sources */,
 				37A5358D1FBFF3B40036A248 /* AppDelegate.m in Sources */,
 				37A5358A1FBFF3B40036A248 /* main.m in Sources */,
+				37B330811FC0CC1500500484 /* TimeCircuitsUIViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +522,7 @@
 				37A535B41FBFF3B40036A248 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37A535B51FBFF3B40036A248 /* Build configuration list for PBXNativeTarget "App_2Tests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +531,7 @@
 				37A535B71FBFF3B40036A248 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37A535B81FBFF3B40036A248 /* Build configuration list for PBXNativeTarget "App_2UITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +540,7 @@
 				37A535BA1FBFF3B40036A248 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
