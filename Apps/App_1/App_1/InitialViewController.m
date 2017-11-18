@@ -33,7 +33,7 @@
 - (BOOL)  textFieldShouldReturn:(UITextField *)textField
 {
     
-    return false;
+    return [self logIn:_nameUITextField.text];
 }
 
 /*
@@ -46,6 +46,31 @@
 }
 */
 
+#pragma mark - Action Handlers
+
+-(IBAction)authenticateAgent:(id)sender
+{
+    // This will cause the keyboard to dismiss when the authenticate button is tapped
+    
+    NSString * nameString = _nameUITextField.text;
+    
+    if([_nameUITextField isFirstResponder])//name text field property identifier goes here.isFirstResponder
+    {
+        [_nameUITextField resignFirstResponder];//name text field property identifier goes here.resignFirstResponder
+        [self logIn:nameString];
+
+    }
+    if([_aUITextField isFirstResponder])
+    {
+        [_aUITextField resignFirstResponder];//name text field property identifier goes here.isFirstResponder
+        [self logIn:nameString];//name text field property identifier goes here.resignFirstResponder
+
+        
+    }
+
+}
+
+
 #pragma mark - Functions
 
 - (BOOL) logIn: (NSString*) greetingName
@@ -53,10 +78,10 @@
     
     if([_nameUITextField isEqual:@""] && [_aUITextField isEqual:@""])
     {
-        NSString * aString = [_nameUITextField text];
+        NSString * nameString = [_nameUITextField text];
         
         //split string by " "
-        NSArray * greetingArray = [NSArray arrayWithObjects: [aString componentsSeparatedByString:@" "], nil];
+        NSArray * greetingArray = [NSArray arrayWithObjects: [nameString componentsSeparatedByString:@" "], nil];
         // geting agent name in splited array[1]
         NSString * agentName = [greetingArray objectAtIndex:1];
         // concatenate agent name with "Good evening, Agent"
