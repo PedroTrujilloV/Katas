@@ -16,6 +16,7 @@
 		37A535AE1FBFF3B40036A248 /* App_2UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A535AD1FBFF3B40036A248 /* App_2UITests.m */; };
 		37A535BD1FBFF5B40036A248 /* MainUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A535BC1FBFF5B40036A248 /* MainUIViewController.m */; };
 		37B330811FC0CC1500500484 /* TimeCircuitsUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B330801FC0CC1500500484 /* TimeCircuitsUIViewController.m */; };
+		37B330841FC1506000500484 /* digital-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37B330831FC1506000500484 /* digital-7.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		37B3307F1FC0CC1500500484 /* TimeCircuitsUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeCircuitsUIViewController.h; sourceTree = "<group>"; };
 		37B330801FC0CC1500500484 /* TimeCircuitsUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeCircuitsUIViewController.m; sourceTree = "<group>"; };
 		37B330821FC0E98500500484 /* Protocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Protocols.h; sourceTree = "<group>"; };
+		37B330831FC1506000500484 /* digital-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				37A5358C1FBFF3B40036A248 /* AppDelegate.m */,
 				37A535911FBFF3B40036A248 /* Main.storyboard */,
 				37A535941FBFF3B40036A248 /* Assets.xcassets */,
+				37B330831FC1506000500484 /* digital-7.ttf */,
 				37A535961FBFF3B40036A248 /* LaunchScreen.storyboard */,
 				37A535991FBFF3B40036A248 /* Info.plist */,
 				37A535881FBFF3B40036A248 /* Supporting Files */,
@@ -259,6 +262,7 @@
 				37A535981FBFF3B40036A248 /* LaunchScreen.storyboard in Resources */,
 				37A535951FBFF3B40036A248 /* Assets.xcassets in Resources */,
 				37A535931FBFF3B40036A248 /* Main.storyboard in Resources */,
+				37B330841FC1506000500484 /* digital-7.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

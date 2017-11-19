@@ -5,22 +5,12 @@
 //  Created by Pedro Trujillo on 11/17/17.
 //  Copyright © 2017 Pedro Trujillo. All rights reserved.
 //
-//* [ ] Call the method to start the timer in the IBAction that is called when the travel back button is tapped.
-//* [ ] In the start timer method, instantiate the timer object for a 0.1 sec time interval. Set it to fire the method that updates the speed label.
-//* [ ] In the stop timer method, stop the timer (there is a method you can call to do this, and it may not be called _stop_) and then set it to nil.
-//* In the update speed method:
-//* [ ] Check if the current speed variable has reached 88. If we have NOT:
-//* [ ] Increment the current speed variable by 1.
-//* [ ] Update the speed label with the current speed.
-//* [ ] Once the speed has reached at least 88, stop the timer.
-//* [ ] Update the value of the lastTimeDepartedLabel with the value from the presentTimeLabel.
-//* [ ] Update the value of the presentTimeLabel with the value from the destinationTimeLabel.
-//* [ ] Reset the value of the current speed variable to 0.
+
 
 
 #import "MainUIViewController.h"
 
-@interface MainUIViewController ()
+@interface MainUIViewController ()// for private methods/properties, declare them here first.
     -(void)startTimer;
     -(void)stopTimer;
 @end
