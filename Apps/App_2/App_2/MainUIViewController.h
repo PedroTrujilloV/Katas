@@ -23,7 +23,7 @@
 
     @property NSDateFormatter * aNSDateFormater;
     @property NSDate * currentDate;
-    @property int * currentSpeed;
+    @property int currentSpeed;
     @property NSString * lastTimeDeparture;
     @property NSTimer * timerBack;
 

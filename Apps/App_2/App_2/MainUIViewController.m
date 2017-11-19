@@ -21,7 +21,8 @@
 #import "MainUIViewController.h"
 
 @interface MainUIViewController ()
-
+    -(void)startTimer;
+    -(void)stopTimer;
 @end
 
 @implementation MainUIViewController
@@ -51,16 +52,30 @@
     
     _currentSpeed = 0;
     
-    _speedUILabel.text = [NSString stringWithFormat:@"%i MPH",(int)_currentSpeed];
-    
-    
-    
-    
+    _speedUILabel.text = [NSString stringWithFormat:@"%i MPH",_currentSpeed];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma Setter - methods
+
+-(void) setCurrentSpeedInUI
+{
+    if(_currentSpeed <= 87)
+    {
+        _currentSpeed += 1;
+        _speedUILabel.text = [NSString stringWithFormat:@"%i MPH",_currentSpeed];
+    }
+    else
+    {
+        [self stopTimer];
+        _lastTimeDepartedUILabel.text = _presentTImeUILabel.text;
+        _presentTImeUILabel.text = _destinationTimeUILabel.text;
+        _currentSpeed = 0;
+    }
 }
 
 
@@ -79,7 +94,6 @@
 }
 
 
-
 #pragma Protocol - methods
 
 -(void) dateWasPicked:(NSString *)datePickerString
@@ -87,6 +101,31 @@
     NSLog(@"#####--- dateWasPicked: %@",datePickerString);
     
     _destinationTimeUILabel.text = datePickerString;
+    _lastTimeDepartedUILabel.text = _lastTimeDeparture;
+    _lastTimeDeparture = datePickerString;
+    
 }
+
+#pragma IBActions
+
+-(IBAction)travelBackAction:(UIButton*)sender
+{
+    NSLog(@"#####--- travelBackAction!");
+    [self startTimer];
+}
+
+#pragma Private - methods
+
+-(void)startTimer
+{
+    _timerBack = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(setCurrentSpeedInUI) userInfo:nil repeats:true];
+}
+
+-(void)stopTimer
+{
+    [_timerBack invalidate];
+    _timerBack = nil;
+}
+
 
 @end

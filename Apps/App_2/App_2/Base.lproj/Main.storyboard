@@ -80,6 +80,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZ3-Q3-yhG">
                                 <rect key="frame" x="36" y="362" width="248" height="30"/>
                                 <state key="normal" title="Travel Back"/>
+                                <connections>
+                                    <action selector="travelBackAction:" destination="vcA-0x-vd9" eventType="touchUpInside" id="16c-WS-MMI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
