@@ -5,10 +5,6 @@
 //  Created by Pedro Trujillo on 11/17/17.
 //  Copyright © 2017 Pedro Trujillo. All rights reserved.
 //
-//* [ ] Set the TimeCircuitsViewController class as implementing the delegate for the date picker.
-//* [ ] Set the DatePickerViewController object's delegate as the TimeCircuitsViewController object in the prepareForSegue method.
-//* [ ] Call the delegate method to inform the delegate of the new date chosen by the user somewhere in the DatePickerViewController.
-//* [ ] Set the destinationTimeLabel with the date received from the picker view controller using the date formatter object in the destinationDateWasChosen method.
 //* [ ] Call the method to start the timer in the IBAction that is called when the travel back button is tapped.
 //* [ ] In the start timer method, instantiate the timer object for a 0.1 sec time interval. Set it to fire the method that updates the speed label.
 //* [ ] In the stop timer method, stop the timer (there is a method you can call to do this, and it may not be called _stop_) and then set it to nil.
@@ -67,14 +63,30 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([[segue identifier] isEqualToString:@"ShowTimeCircuitsSegue"])
+    {
+        TimeCircuitsUIViewController * datePickerVC = (TimeCircuitsUIViewController*)[segue destinationViewController];
+        datePickerVC.delegateDataSource = self;
+    }
 }
-*/
+
+
+
+#pragma Protocol - methods
+
+-(void) dateWasPicked:(NSString *)datePickerString
+{
+    NSLog(@"#####--- dateWasPicked: %@",datePickerString);
+    
+    _destinationTimeUILabel.text = datePickerString;
+}
 
 @end

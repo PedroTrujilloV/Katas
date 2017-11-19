@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TimeCircuitsUIViewController.h"
+//#import "Protocols.h"
 
-@interface MainUIViewController : UIViewController
+
+@interface MainUIViewController : UIViewController  <TimeCircuitsProtocolDelegate>
 
 #pragma Variables:
     @property (nonatomic,weak) IBOutlet UILabel * destinationTimeUILabel;

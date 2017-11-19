@@ -8,16 +8,17 @@
 
 
 #import <UIKit/UIKit.h>
+#import "Protocols.h"
 
 @interface TimeCircuitsUIViewController : UIViewController
 
 #pragma IBOutlets
-@property (nonatomic,weak) IBOutlet UIDatePicker * timeUIDatePicker;
+@property (nonatomic,weak) IBOutlet UIDatePicker * dateUIDatePicker;
 
 @property NSDateFormatter * timeNSDateFormater;
 
 @property NSString * datePickerString;
 
-//@property (weak) TimeCircuitDelegate * delegate;
+@property (nonatomic, weak) NSObject<TimeCircuitsProtocolDelegate>* delegateDataSource; //declare delegate
 
 @end

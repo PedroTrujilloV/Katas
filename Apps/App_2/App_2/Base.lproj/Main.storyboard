@@ -74,7 +74,7 @@
                                 <rect key="frame" x="36" y="324" width="248" height="30"/>
                                 <state key="normal" title="Set Destination Time"/>
                                 <connections>
-                                    <segue destination="mKc-Wp-CUZ" kind="show" id="rB2-BF-yo2"/>
+                                    <segue destination="mKc-Wp-CUZ" kind="show" identifier="ShowTimeCircuitsSegue" id="rB2-BF-yo2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZ3-Q3-yhG">
@@ -152,6 +152,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="532729173.11565399">
                                     <!--2017-11-18 20:19:33 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="datePickerChanged:" destination="mKc-Wp-CUZ" eventType="valueChanged" id="yXK-gO-IgQ"/>
+                                </connections>
                             </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -162,6 +165,9 @@
                             <constraint firstItem="bzh-Nj-H6o" firstAttribute="centerX" secondItem="1LF-JQ-pDv" secondAttribute="centerX" id="oMD-6J-4ht"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dateUIDatePicker" destination="bzh-Nj-H6o" id="Fqp-Xh-YIk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iEV-1Q-xtj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

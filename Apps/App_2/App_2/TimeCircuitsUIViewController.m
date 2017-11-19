@@ -25,7 +25,7 @@
     _timeNSDateFormater.dateStyle = NSDateFormatterMediumStyle;
     _timeNSDateFormater.timeStyle =  NSDateFormatterNoStyle;
     
-    _datePickerString = [_timeNSDateFormater stringFromDate:_timeUIDatePicker.date];
+    _datePickerString = [_timeNSDateFormater stringFromDate:_dateUIDatePicker.date];
     
 }
 
@@ -34,11 +34,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    if([_delegateDataSource respondsToSelector:@selector(dateWasPicked:)])
+        {
+            [_delegateDataSource dateWasPicked:_datePickerString];
+        }
+}
 #pragma IBActions:
 
 -(IBAction)datePickerChanged:(id)UIDatePicker
 {
-    _datePickerString = [_timeNSDateFormater stringFromDate:_timeUIDatePicker.date];
+    _datePickerString = [_timeNSDateFormater stringFromDate:_dateUIDatePicker.date];
 }
 
 /*
