@@ -14,9 +14,17 @@
 
 @implementation HeroDetailUIViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.title = [_aHero name];
+    
+    _heroUIImageView.image = [UIImage imageNamed:_aHero.imagePath];
+    _nameUILabel.text = [_aHero name];
+    _homeworldUILabel.text = [_aHero homeWorld];
+    _porwerUILabel.text = [_aHero powers];
 }
 
 - (void)didReceiveMemoryWarning {
