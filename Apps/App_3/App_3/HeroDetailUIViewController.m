@@ -24,7 +24,7 @@
     _heroUIImageView.image = [UIImage imageNamed:_aHero.imagePath];
     _nameUILabel.text = [_aHero name];
     _homeworldUILabel.text = [_aHero homeWorld];
-    _porwerUILabel.text = [_aHero powers];
+    _porwersUITextView.text = [_aHero powers];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -21,7 +21,7 @@
 		37B330DD1FC2283600500484 /* america.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B330CF1FC2283500500484 /* america.jpg */; };
 		37B330DE1FC2283600500484 /* drax.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B330D01FC2283500500484 /* drax.jpg */; };
 		37B330DF1FC2283600500484 /* gamora.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B330D11FC2283500500484 /* gamora.jpg */; };
-		37B330E01FC2283600500484 /* groot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B330D21FC2283500500484 /* groot.jpg */; };
+		37B330E01FC2283600500484 /* groot in Resources */ = {isa = PBXBuildFile; fileRef = 37B330D21FC2283500500484 /* groot */; };
 		37B330E11FC2283600500484 /* Hero1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B330D31FC2283500500484 /* Hero1.jpg */; };
 		37B330E21FC2283600500484 /* Hero4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B330D41FC2283500500484 /* Hero4.jpg */; };
 		37B330E31FC2283600500484 /* Hero6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B330D51FC2283500500484 /* Hero6.jpg */; };
@@ -76,7 +76,7 @@
 		37B330CF1FC2283500500484 /* america.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = america.jpg; path = Assets.xcassets/america.jpg; sourceTree = "<group>"; };
 		37B330D01FC2283500500484 /* drax.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = drax.jpg; path = Assets.xcassets/drax.jpg; sourceTree = "<group>"; };
 		37B330D11FC2283500500484 /* gamora.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = gamora.jpg; path = Assets.xcassets/gamora.jpg; sourceTree = "<group>"; };
-		37B330D21FC2283500500484 /* groot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = groot.jpg; path = Assets.xcassets/groot.jpg; sourceTree = "<group>"; };
+		37B330D21FC2283500500484 /* groot */ = {isa = PBXFileReference; lastKnownFileType = file; name = groot; path = Assets.xcassets/groot; sourceTree = "<group>"; };
 		37B330D31FC2283500500484 /* Hero1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Hero1.jpg; path = Assets.xcassets/Hero1.jpg; sourceTree = "<group>"; };
 		37B330D41FC2283500500484 /* Hero4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Hero4.jpg; path = Assets.xcassets/Hero4.jpg; sourceTree = "<group>"; };
 		37B330D51FC2283500500484 /* Hero6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Hero6.jpg; path = Assets.xcassets/Hero6.jpg; sourceTree = "<group>"; };
@@ -188,7 +188,7 @@
 				37B330CF1FC2283500500484 /* america.jpg */,
 				37B330D01FC2283500500484 /* drax.jpg */,
 				37B330D11FC2283500500484 /* gamora.jpg */,
-				37B330D21FC2283500500484 /* groot.jpg */,
+				37B330D21FC2283500500484 /* groot */,
 				37B330D31FC2283500500484 /* Hero1.jpg */,
 				37B330D41FC2283500500484 /* Hero4.jpg */,
 				37B330D51FC2283500500484 /* Hero6.jpg */,
@@ -317,7 +317,7 @@
 				37B330DD1FC2283600500484 /* america.jpg in Resources */,
 				37B330DF1FC2283600500484 /* gamora.jpg in Resources */,
 				37B330EA1FC2283600500484 /* thor.jpg in Resources */,
-				37B330E01FC2283600500484 /* groot.jpg in Resources */,
+				37B330E01FC2283600500484 /* groot in Resources */,
 				37B330E91FC2283600500484 /* starlord.jpg in Resources */,
 				37B330CE1FC20C8100500484 /* heroes.json in Resources */,
 				37B3309E1FC1F39500500484 /* Assets.xcassets in Resources */,
@@ -596,6 +596,7 @@
 				37B330BD1FC1F39500500484 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37B330BE1FC1F39500500484 /* Build configuration list for PBXNativeTarget "App_3Tests" */ = {
 			isa = XCConfigurationList;
@@ -604,6 +605,7 @@
 				37B330C01FC1F39500500484 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37B330C11FC1F39500500484 /* Build configuration list for PBXNativeTarget "App_3UITests" */ = {
 			isa = XCConfigurationList;
@@ -612,6 +614,7 @@
 				37B330C31FC1F39500500484 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

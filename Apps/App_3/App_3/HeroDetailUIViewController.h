@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Hero.h"
 
-@interface HeroDetailUIViewController : UIViewController
+@interface HeroDetailUIViewController : UIViewController<UITextViewDelegate>
 
 @property(nonatomic, weak) IBOutlet UIImageView * heroUIImageView;
 @property(nonatomic,weak) IBOutlet UILabel * nameUILabel;
 @property(nonatomic,weak) IBOutlet UILabel * homeworldUILabel;
-@property(nonatomic , weak) IBOutlet UILabel * porwerUILabel;
+@property(nonatomic , weak) IBOutlet UITextView * porwersUITextView;
 
 @property Hero * aHero;
 
