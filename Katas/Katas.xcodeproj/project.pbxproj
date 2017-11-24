@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		376205CA1FBBC4B4005F06EA /* Kata1_2_DataTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 376205C91FBBC4B4005F06EA /* Kata1_2_DataTypes.m */; };
 		376B6DEB1FBD28E2008668F7 /* Kata2_2_Arrays.m in Sources */ = {isa = PBXBuildFile; fileRef = 376B6DEA1FBD28E2008668F7 /* Kata2_2_Arrays.m */; };
+		37E491B01FC89E68005B7119 /* Algorithms.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E491AF1FC89E68005B7119 /* Algorithms.m */; };
+		37E491B21FC89E91005B7119 /* Practice_Problems.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E491B11FC89E91005B7119 /* Practice_Problems.m */; };
 		EB4E7EE91D9AD4C6009B4C0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4E7EE81D9AD4C6009B4C0D /* main.m */; };
 		EB4E7EF41D9C2F00009B4C0D /* Kata2_Arrays.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4E7EF31D9C2F00009B4C0D /* Kata2_Arrays.m */; };
 		EB4E7EF61D9C3464009B4C0D /* Kata1_DataTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4E7EF51D9C3464009B4C0D /* Kata1_DataTypes.m */; };
@@ -34,6 +36,8 @@
 /* Begin PBXFileReference section */
 		376205C91FBBC4B4005F06EA /* Kata1_2_DataTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kata1_2_DataTypes.m; sourceTree = "<group>"; };
 		376B6DEA1FBD28E2008668F7 /* Kata2_2_Arrays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kata2_2_Arrays.m; sourceTree = "<group>"; };
+		37E491AF1FC89E68005B7119 /* Algorithms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Algorithms.m; sourceTree = "<group>"; };
+		37E491B11FC89E91005B7119 /* Practice_Problems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Practice_Problems.m; sourceTree = "<group>"; };
 		EB4E7EE51D9AD4C6009B4C0D /* Katas */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Katas; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4E7EE81D9AD4C6009B4C0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB4E7EF21D9C2E90009B4C0D /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 				EB4E7EFB1D9DAC88009B4C0D /* Node.m */,
 				EB68E9E21DA2E12F00734F16 /* Kata5_BinaryTree.m */,
 				EB68E9E51DA6CE6500734F16 /* Kata6_Dictionary.m */,
+				37E491AF1FC89E68005B7119 /* Algorithms.m */,
+				37E491B11FC89E91005B7119 /* Practice_Problems.m */,
 			);
 			path = Katas;
 			sourceTree = "<group>";
@@ -150,9 +156,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37E491B01FC89E68005B7119 /* Algorithms.m in Sources */,
 				EB4E7EE91D9AD4C6009B4C0D /* main.m in Sources */,
 				EB68E9E61DA6CE6600734F16 /* Kata6_Dictionary.m in Sources */,
 				EB4E7EF61D9C3464009B4C0D /* Kata1_DataTypes.m in Sources */,
+				37E491B21FC89E91005B7119 /* Practice_Problems.m in Sources */,
 				EB4E7EFA1D9D9B90009B4C0D /* Kata4_Stack.m in Sources */,
 				EB4E7EF41D9C2F00009B4C0D /* Kata2_Arrays.m in Sources */,
 				EB68E9E31DA2E12F00734F16 /* Kata5_BinaryTree.m in Sources */,

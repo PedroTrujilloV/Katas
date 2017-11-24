@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37150BB41FC7E38400154AAD /* TimeCircuitsUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37150BB31FC7E38400154AAD /* TimeCircuitsUIViewController.m */; };
+		37C1A21D1FC4FD5100E0C8FA /* TaksUITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C1A21C1FC4FD5100E0C8FA /* TaksUITableViewCell.m */; };
 		37DFC5B91FC3BC8F0043E059 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DFC5B81FC3BC8F0043E059 /* main.m */; };
 		37DFC5BC1FC3BC8F0043E059 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DFC5BB1FC3BC8F0043E059 /* AppDelegate.m */; };
 		37DFC5C21FC3BC8F0043E059 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37DFC5C01FC3BC8F0043E059 /* Main.storyboard */; };
@@ -16,8 +18,6 @@
 		37DFC5D51FC3BC8F0043E059 /* App_4Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DFC5D41FC3BC8F0043E059 /* App_4Tests.m */; };
 		37DFC5E01FC3BC8F0043E059 /* App_4UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DFC5DF1FC3BC8F0043E059 /* App_4UITests.m */; };
 		37DFC5EF1FC3BD920043E059 /* ToDoInitialTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DFC5EE1FC3BD920043E059 /* ToDoInitialTableViewController.m */; };
-		37DFC5FA1FC476800043E059 /* TaskEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DFC5F71FC476800043E059 /* TaskEntity+CoreDataClass.m */; };
-		37DFC5FB1FC476800043E059 /* TaskEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DFC5F91FC476800043E059 /* TaskEntity+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		37150BB21FC7E38400154AAD /* TimeCircuitsUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeCircuitsUIViewController.h; sourceTree = "<group>"; };
+		37150BB31FC7E38400154AAD /* TimeCircuitsUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeCircuitsUIViewController.m; sourceTree = "<group>"; };
+		37150BB51FC7E3D000154AAD /* Protocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Protocols.h; sourceTree = "<group>"; };
+		37C1A21B1FC4FD5100E0C8FA /* TaksUITableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaksUITableViewCell.h; sourceTree = "<group>"; };
+		37C1A21C1FC4FD5100E0C8FA /* TaksUITableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaksUITableViewCell.m; sourceTree = "<group>"; };
 		37DFC5B41FC3BC8F0043E059 /* App_4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App_4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37DFC5B81FC3BC8F0043E059 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		37DFC5BA1FC3BC8F0043E059 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -55,10 +60,6 @@
 		37DFC5E11FC3BC8F0043E059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37DFC5ED1FC3BD920043E059 /* ToDoInitialTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoInitialTableViewController.h; sourceTree = "<group>"; };
 		37DFC5EE1FC3BD920043E059 /* ToDoInitialTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoInitialTableViewController.m; sourceTree = "<group>"; };
-		37DFC5F61FC476800043E059 /* TaskEntity+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TaskEntity+CoreDataClass.h"; sourceTree = "<group>"; };
-		37DFC5F71FC476800043E059 /* TaskEntity+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TaskEntity+CoreDataClass.m"; sourceTree = "<group>"; };
-		37DFC5F81FC476800043E059 /* TaskEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TaskEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
-		37DFC5F91FC476800043E059 /* TaskEntity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TaskEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,10 +90,6 @@
 		37DFC5AB1FC3BC8F0043E059 = {
 			isa = PBXGroup;
 			children = (
-				37DFC5F61FC476800043E059 /* TaskEntity+CoreDataClass.h */,
-				37DFC5F71FC476800043E059 /* TaskEntity+CoreDataClass.m */,
-				37DFC5F81FC476800043E059 /* TaskEntity+CoreDataProperties.h */,
-				37DFC5F91FC476800043E059 /* TaskEntity+CoreDataProperties.m */,
 				37DFC5B61FC3BC8F0043E059 /* App_4 */,
 				37DFC5D31FC3BC8F0043E059 /* App_4Tests */,
 				37DFC5DE1FC3BC8F0043E059 /* App_4UITests */,
@@ -116,6 +113,11 @@
 				37DFC5BA1FC3BC8F0043E059 /* AppDelegate.h */,
 				37DFC5BB1FC3BC8F0043E059 /* AppDelegate.m */,
 				37DFC5C01FC3BC8F0043E059 /* Main.storyboard */,
+				37C1A21B1FC4FD5100E0C8FA /* TaksUITableViewCell.h */,
+				37C1A21C1FC4FD5100E0C8FA /* TaksUITableViewCell.m */,
+				37150BB51FC7E3D000154AAD /* Protocols.h */,
+				37150BB21FC7E38400154AAD /* TimeCircuitsUIViewController.h */,
+				37150BB31FC7E38400154AAD /* TimeCircuitsUIViewController.m */,
 				37DFC5ED1FC3BD920043E059 /* ToDoInitialTableViewController.h */,
 				37DFC5EE1FC3BD920043E059 /* ToDoInitialTableViewController.m */,
 				37DFC5C61FC3BC8F0043E059 /* Assets.xcassets */,
@@ -292,9 +294,9 @@
 				37DFC5EF1FC3BD920043E059 /* ToDoInitialTableViewController.m in Sources */,
 				37DFC5BC1FC3BC8F0043E059 /* AppDelegate.m in Sources */,
 				37DFC5C51FC3BC8F0043E059 /* App_4.xcdatamodeld in Sources */,
-				37DFC5FB1FC476800043E059 /* TaskEntity+CoreDataProperties.m in Sources */,
+				37150BB41FC7E38400154AAD /* TimeCircuitsUIViewController.m in Sources */,
+				37C1A21D1FC4FD5100E0C8FA /* TaksUITableViewCell.m in Sources */,
 				37DFC5B91FC3BC8F0043E059 /* main.m in Sources */,
-				37DFC5FA1FC476800043E059 /* TaskEntity+CoreDataClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +534,7 @@
 				37DFC5E61FC3BC8F0043E059 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37DFC5E71FC3BC8F0043E059 /* Build configuration list for PBXNativeTarget "App_4Tests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +543,7 @@
 				37DFC5E91FC3BC8F0043E059 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37DFC5EA1FC3BC8F0043E059 /* Build configuration list for PBXNativeTarget "App_4UITests" */ = {
 			isa = XCConfigurationList;
@@ -548,6 +552,7 @@
 				37DFC5EC1FC3BC8F0043E059 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

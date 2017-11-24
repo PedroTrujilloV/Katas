@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TaksUITableViewCell.h"
+#import <CoreData/CoreData.h>
+#import "TaskModel.h"
+#import "AppDelegate.h"
+#import "TimeCircuitsUIViewController.h"
 
-@interface ToDoInitialTableViewController : UITableViewController
+
+@interface ToDoInitialTableViewController : UITableViewController <UITextFieldDelegate,TimeCircuitsProtocolDelegate>
+
+    @property (strong) NSArray<TaskModel * > * taksList;
+    @property (strong) TaskModel * editingTask;
 
 @end

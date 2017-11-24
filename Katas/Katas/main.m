@@ -38,10 +38,10 @@ int main(int argc, const char * argv[]) {
         
         //[kata2 subdividingArrays];
         
-        Kata2_2_Arrays * kata2_2 = [[Kata2_2_Arrays alloc]init];
+        //Kata2_2_Arrays * kata2_2 = [[Kata2_2_Arrays alloc]init];
         
         //[kata2_2 introductionToArrays2];
-        [kata2_2 nsMutableArrays];
+        //[kata2_2 nsMutableArrays];
         
         //Linked Lists
         
@@ -64,6 +64,19 @@ int main(int argc, const char * argv[]) {
 //        Kata6_Dictionary * kata6 = [[Kata6_Dictionary alloc]init];
         
 //        [kata6 dictionaryImplementation];
+        
+        Practice_Problems * questions = [[Practice_Problems alloc]init];
+        
+        NSArray * givenArray = [NSArray arrayWithObjects:@6,@2,@1,@4,@0,@0,@1,@5,@0,@0,@3, nil];
+        
+//        int answer = [questions problem_1_moveAllZeros:givenArray];
+        
+//        NSLog(@"answer: %i",answer);
+        
+        BOOL answer = [questions problem_2_pairInArray:givenArray sumThisInt:7];
+        
+        NSLog(@"answer: %hhd",answer);
+        
         
        
     }

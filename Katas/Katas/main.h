@@ -123,3 +123,12 @@
 @interface Kata6_Dictionary:NSObject
     - (void) dictionaryImplementation;
 @end
+
+
+@interface Practice_Problems : NSObject
+
+-(int) problem_1_moveAllZeros:(NSArray *)givenArray;
+-(BOOL) problem_2_pairInArray:(NSArray*)givenArray sumThisInt:(int)intNum;
+
+
+@end
