@@ -74,12 +74,11 @@
 -(NSString * ) problem_3_AdditionTwoBinaryNumbers:(NSString *)binaryStringNumberA and:(NSString * )binaryStringNumberB
 {
     
+//    NSMutableString * sum = [[NSMutableString alloc] init];
     NSMutableString * result = [[NSMutableString alloc] init];
     NSMutableString * stringA = [[NSMutableString alloc] init];
     NSMutableString * stringB = [[NSMutableString alloc] init];
 
-    
-    
     int carry = 0;
 
     long maxLength = [binaryStringNumberA length] > [binaryStringNumberB length] ? [binaryStringNumberA length] : [binaryStringNumberB length];
@@ -105,13 +104,15 @@
         int numA =((int)[stringA characterAtIndex:i] & 1) ? 1 : 0;//necessary use mask to not get another value
         int numB = ((int)[stringB characterAtIndex:i]  & 1) ? 1 : 0; //necessary use mask to not get another value
         
-        [result appendFormat:@"%i", numA^numB^carry];
+        NSMutableString * sum =  [[NSMutableString alloc] initWithFormat:@"%i%@", (numA^numB^carry),result]; //XOR door works same as a sum, just necessary carry out in other variable
         
-        carry = (numA && numB) || (numA && carry) || (numB && carry);
+        result = [sum mutableCopy];
+        
+        
+        
+        carry = (numA && numB) || (numA && carry) || (numB && carry); // the carry value for next iteration
 
     }
-    
-    
     
     return result;
 }

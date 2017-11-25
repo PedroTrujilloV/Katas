@@ -77,8 +77,13 @@ int main(int argc, const char * argv[]) {
         
 //        NSLog(@"answer: %hhd",answer);
         
-        NSString * numA = [NSString stringWithFormat:@"1010"];
-        NSString * numB = [NSString stringWithFormat:@"11"];
+        //100101 + 10101 = 111010
+        
+//        NSString * numA = [NSString stringWithFormat:@"1010"];
+//        NSString * numB = [NSString stringWithFormat:@"11"];
+        
+        NSString * numA = [NSString stringWithFormat:@"100101"];
+        NSString * numB = [NSString stringWithFormat:@"10101"];
         
         NSString * answer = [questions problem_3_AdditionTwoBinaryNumbers:numA and:numB];
         
