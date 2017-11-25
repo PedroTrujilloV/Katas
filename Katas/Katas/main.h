@@ -125,11 +125,36 @@
 @end
 
 
+@interface BinaryTree_p : NSObject
+
+@property (nonatomic) int value;
+@property(nonatomic) BinaryTree_p * parentBranch_p;
+@property(nonatomic) BinaryTree_p * leftBranch_p;
+@property(nonatomic) BinaryTree_p * rightBranch_p;
+
+-(id)init;
+-(id)initWithValue:(int)value;
+
+-(void)setValue:(int)value;
+-(void)setLeftBranch:(BinaryTree_p *)leftBranch;
+-(void)setRightBranch:(BinaryTree_p *)rightBranch;
+-(void)setParentBranch:(BinaryTree_p *)parentBranch;
+
+-(NSMutableArray * )preOrderTraversal;
+-(NSMutableArray * )inOrderTraversal;
+-(NSMutableArray * )posOrderTraversal;
+
+-(void)sortedInsert:(int)aValue;
+
+
+@end
+
+
 @interface Practice_Problems : NSObject
 
 -(int) problem_1_moveAllZeros:(NSArray *)givenArray;
 -(BOOL) problem_2_pairInArray:(NSArray*)givenArray sumThisInt:(int)intNum;
 -(NSString * ) problem_3_AdditionTwoBinaryNumbers:(NSString *)binaryStringNumberA and:(NSString * )binaryStringNumberB;
 -(BOOL) problem_4_isValidPalindrome:(NSString *)possiblePalindrome;
-
+-(void)problem_5_BinaryTreeToListInOrder;
 @end

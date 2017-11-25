@@ -67,7 +67,6 @@
         startAtIndex++;
     }
     
-    
     return NO;
 }
 
@@ -122,9 +121,9 @@
 
 -(BOOL) problem_4_isValidPalindrome:(NSString *)possiblePalindrome
 {
-    //Is a valid palindrome word?
+    /* Is a valid palindrome word?
     
-    // complexity O(log(n))
+    time  complexity O(log(n)) */
     
     if([possiblePalindrome length] <= 1)
         return YES;
@@ -137,8 +136,6 @@
 }
 
 
-
-//move zero
 //inorder BS
 /*
  1. "copy” is not a property of which following class?
@@ -171,7 +168,6 @@
 /*
  How to detect a common superview.
  
- Binary tree to list, inorder
 
  The same list, back to inorder binary tree
 
@@ -185,5 +181,202 @@
 
  */
 
+-(void )problem_5_BinaryTreeToListInOrder
+{
+    /*
+     Binary tree to list, inorder
+     */
+    
+    BinaryTree_p * aTree = [[BinaryTree_p alloc] initWithValue:7];
+            [aTree sortedInsert:3];
+            [aTree sortedInsert:9];
+            [aTree sortedInsert:7];
+            [aTree sortedInsert:0];
+            [aTree sortedInsert:8];
+            [aTree sortedInsert:2];
+            [aTree sortedInsert:4];
+            [aTree sortedInsert:6];
+            [aTree sortedInsert:1];
+            [aTree sortedInsert:5];
+    
+    NSMutableArray * inOrderArray = [aTree inOrderTraversal];
+    
+    NSLog(@"* inOrderArray: %@", inOrderArray);
+    
+    NSMutableArray * preOrderArray = [aTree preOrderTraversal];
+    
+    NSLog(@"* preOrderArray: %@",preOrderArray);
+    
+    NSMutableArray * posOrderArray = [aTree posOrderTraversal];
+    
+    NSLog(@"* posOrderArray: %@",posOrderArray);
+    
+}
 
 @end
+
+
+
+
+@implementation BinaryTree_p
+
+
+-(id)init
+{
+    self =[super init];
+    if(self)
+    {
+        _value = -1;
+        _parentBranch_p = nil;
+        _leftBranch_p = nil;
+        _rightBranch_p = nil;
+    }
+    
+    return self;
+}
+
+-(id)initWithValue:(int)value
+{
+    self = [super init];
+    
+    if(self)
+    {
+        _value = value;
+        _parentBranch_p = nil;
+        _leftBranch_p = nil;
+        _rightBranch_p = nil;
+    }
+    return self;
+}
+
+-(void)setValue:(int)value
+{
+    _value = value;
+}
+
+-(void)setLeftBranch:(BinaryTree_p *)leftBranch
+{
+    _leftBranch_p = leftBranch;
+}
+
+-(void)setRightBranch:(BinaryTree_p *)rightBranch
+{
+    _rightBranch_p = rightBranch;
+}
+
+-(void)setParentBranch:(BinaryTree_p *)parentBranch
+{
+    _parentBranch_p = parentBranch;
+}
+
+-(int)getValue
+{
+    return -1;
+}
+
+-(BinaryTree_p * )getLeftBranch
+{
+    return _leftBranch_p;
+}
+
+-(BinaryTree_p * )getRightBranch
+{
+    return _rightBranch_p;
+}
+
+-(BinaryTree_p *)getParentBranch
+{
+    return _parentBranch_p;
+}
+
+//DFS Traversal
+-(NSMutableArray * )inOrderTraversal
+{
+    NSMutableArray * anArray  = [[NSMutableArray alloc] init];
+    
+    if([self getLeftBranch])
+        [anArray addObjectsFromArray: [_leftBranch_p inOrderTraversal] ];
+    
+    [anArray addObject: @(_value)];
+//    [anArray addObject: [NSNumber numberWithInt:_value]];
+    
+    if([self getRightBranch])
+        [anArray addObjectsFromArray: [_rightBranch_p inOrderTraversal]];
+    
+    return anArray;
+}
+
+-(NSMutableArray * )preOrderTraversal
+{
+    NSMutableArray * anArray = [[NSMutableArray alloc] init];
+    
+    [anArray addObject:@(_value)];
+    
+    if([self getLeftBranch])
+        [anArray addObjectsFromArray: [_leftBranch_p preOrderTraversal]];
+    
+    if([self getRightBranch])
+        [anArray addObjectsFromArray: [_rightBranch_p preOrderTraversal]];
+    
+    return anArray;
+}
+
+-(NSMutableArray * )posOrderTraversal
+{
+    NSMutableArray * anArray = [[NSMutableArray alloc] init];
+    
+    if([self getLeftBranch])
+        [anArray addObjectsFromArray: [_leftBranch_p posOrderTraversal]];
+    
+    if([self getRightBranch])
+        [anArray addObjectsFromArray: [_rightBranch_p posOrderTraversal]];
+    
+    [anArray addObject: @(_value)];
+    
+    return anArray;
+}
+
+-(void)sortedInsert:(int)aValue
+{
+    NSLog(@"sortedInsert: %i",aValue);
+    if(_value != -1)
+        if(_value != aValue)
+            if(_value > aValue)
+                if([self getLeftBranch] == nil)
+                {
+                    BinaryTree_p * aLeftBranch = [[BinaryTree_p alloc] initWithValue: aValue];
+                    [self setLeftBranch: aLeftBranch];
+                    NSLog(@" - value in left branch: %i",aValue);
+                }
+                else
+                {
+                    [_leftBranch_p sortedInsert:aValue];
+                }
+                else
+                    if([self getRightBranch] == nil)
+                    {
+                        BinaryTree_p * aRightBranch = [[BinaryTree_p alloc] initWithValue: aValue];
+                        [self setRightBranch: aRightBranch];
+                        NSLog(@" - value in right branch: %i",aValue);
+                        
+                    }
+                    else
+                    {
+                        [_rightBranch_p sortedInsert:aValue];
+                    }
+    
+                    else
+                        NSLog(@"That value already exist in btree");
+                    else
+                    {
+                        [self setValue:aValue];
+                        NSLog(@" - value in self: %i",aValue);
+                    }
+    
+}
+
+@end
+
+
+
+//https://coderpad.io/YN7G3FJG

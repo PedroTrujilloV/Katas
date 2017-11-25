@@ -89,13 +89,15 @@ int main(int argc, const char * argv[]) {
         
 //        NSLog(@"answer: %@",answer);
         
-        NSString * possiblePalindrome1 = [NSString stringWithFormat:@"madam"];
-        NSString * possiblePalindrome2 = [NSString stringWithFormat:@"redder"];
-        NSString * possiblePalindrome3 = [NSString stringWithFormat:@"hello World"];
+//        NSString * possiblePalindrome1 = [NSString stringWithFormat:@"madam"];
+//        NSString * possiblePalindrome2 = [NSString stringWithFormat:@"redder"];
+//        NSString * possiblePalindrome3 = [NSString stringWithFormat:@"hello World"];
         
-        BOOL isValidThisPalindrome = [questions problem_4_isValidPalindrome:possiblePalindrome3];
+//        BOOL isValidThisPalindrome = [questions problem_4_isValidPalindrome:possiblePalindrome3];
         
-        NSLog(@"is ValidThis Palindrome '%@': %hhd",possiblePalindrome3,isValidThisPalindrome);
+//        NSLog(@"is ValidThis Palindrome '%@': %hhd",possiblePalindrome3,isValidThisPalindrome);
+        
+        [questions problem_5_BinaryTreeToListInOrder];
 
         
         
