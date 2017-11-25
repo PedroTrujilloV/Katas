@@ -67,15 +67,23 @@ int main(int argc, const char * argv[]) {
         
         Practice_Problems * questions = [[Practice_Problems alloc]init];
         
-        NSArray * givenArray = [NSArray arrayWithObjects:@6,@2,@1,@4,@0,@0,@1,@5,@0,@0,@3, nil];
+//        NSArray * givenArray = [NSArray arrayWithObjects:@6,@2,@1,@4,@0,@0,@1,@5,@0,@0,@3, nil];
         
 //        int answer = [questions problem_1_moveAllZeros:givenArray];
         
 //        NSLog(@"answer: %i",answer);
         
-        BOOL answer = [questions problem_2_pairInArray:givenArray sumThisInt:7];
+//        BOOL answer = [questions problem_2_pairInArray:givenArray sumThisInt:7];
         
-        NSLog(@"answer: %hhd",answer);
+//        NSLog(@"answer: %hhd",answer);
+        
+        NSString * numA = [NSString stringWithFormat:@"1010"];
+        NSString * numB = [NSString stringWithFormat:@"11"];
+        
+        NSString * answer = [questions problem_3_AdditionTwoBinaryNumbers:numA and:numB];
+        
+        NSLog(@"answer: %@",answer);
+
         
         
        

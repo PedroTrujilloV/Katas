@@ -71,4 +71,49 @@
     return NO;
 }
 
+-(NSString * ) problem_3_AdditionTwoBinaryNumbers:(NSString *)binaryStringNumberA and:(NSString * )binaryStringNumberB
+{
+    
+    NSMutableString * result = [[NSMutableString alloc] init];
+    NSMutableString * stringA = [[NSMutableString alloc] init];
+    NSMutableString * stringB = [[NSMutableString alloc] init];
+
+    
+    
+    int carry = 0;
+
+    long maxLength = [binaryStringNumberA length] > [binaryStringNumberB length] ? [binaryStringNumberA length] : [binaryStringNumberB length];
+    
+    for(int i = (int)[binaryStringNumberA length]; i<maxLength; i++)
+        [stringA appendString:@"0"];
+    
+    for(int i = (int)[binaryStringNumberB length]; i<maxLength; i++)
+        [stringB appendString:@"0"];
+    
+    [stringA appendString:binaryStringNumberA];
+    [stringB appendString:binaryStringNumberB];
+    
+    NSLog(@"number A: %@",stringA);
+    NSLog(@"number B: %@",stringB);
+    NSLog(@"length: %li",[stringA length]);
+
+
+
+    for(long i = [stringA length]-1; i >= 0; i--)
+    {
+        
+        int numA =((int)[stringA characterAtIndex:i] & 1) ? 1 : 0;//necessary use mask to not get another value
+        int numB = ((int)[stringB characterAtIndex:i]  & 1) ? 1 : 0; //necessary use mask to not get another value
+        
+        [result appendFormat:@"%i", numA^numB^carry];
+        
+        carry = (numA && numB) || (numA && carry) || (numB && carry);
+
+    }
+    
+    
+    
+    return result;
+}
+
 @end

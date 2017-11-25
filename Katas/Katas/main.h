@@ -129,6 +129,7 @@
 
 -(int) problem_1_moveAllZeros:(NSArray *)givenArray;
 -(BOOL) problem_2_pairInArray:(NSArray*)givenArray sumThisInt:(int)intNum;
+-(NSString * ) problem_3_AdditionTwoBinaryNumbers:(NSString *)binaryStringNumberA and:(NSString * )binaryStringNumberB;
 
 
 @end
