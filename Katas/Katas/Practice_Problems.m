@@ -136,7 +136,6 @@
 }
 
 
-//inorder BS
 /*
  1. "copy” is not a property of which following class?
  a. NSArray b. NSInteger c. NSString d. NSNumber
@@ -155,15 +154,6 @@
  Answer: b, c, b, c, b
  */
 
-/*
- Return the head node of the singly linked list with each pair of nodes swapped. If there is a last odd node leave it in place.
- 
- Example:
- Input: 1 -> 2 -> 3 -> 4 -> 5
- Output: 2 -> 1 -> 4 -> 3 -> 5
- */
-
-
 
 /*
  How to detect a common superview.
@@ -181,6 +171,15 @@
 
  */
 
+
+/*Design an enumerator (e.g. named FBSuperEnumerator) that has two API's:
+ 
+ - (id) nextObject;
+ - (NSArray *) allObjects; // all objects remaining
+ 
+ which, when given an input array that has content that can be either NSNumbers or NSArray, will expand all arrays embedded inside it.
+ 
+ That is, given an input of something like @[@1, @[@2, @[@3, @4]], @[ ], @5], each call to nextObject will display items in the expected order. */
 -(void )problem_5_BinaryTreeToListInOrder
 {
     /*
@@ -213,9 +212,154 @@
     
 }
 
+
+-(void)problem_6_LinkedListPairSwapedNodes
+{
+    /*
+     Return the head node of the singly linked list with each pair of nodes swapped. If there is a last odd node leave it in place.
+     
+     Example:
+     Input: 1 -> 2 -> 3 -> 4 -> 5
+     Output: 2 -> 1 -> 4 -> 3 -> 5
+     */
+    
+    LinkedListNode * aList = [[LinkedListNode alloc] initWithValue: 1];
+    
+    [aList addValue:2];
+    [aList addValue:3];
+    [aList addValue:4];
+    [aList addValue:5];
+    
+    NSLog(@"aList before swap values:");
+    [aList printList];
+    
+    //     [aList swapValues];
+    
+    //     NSLog(@"List after swap values:");
+    
+    //     [aList printList];
+    
+    LinkedListNode * swapedListHead = [aList swapNodes];
+    
+    NSLog(@"aList after swap nodes:");
+    
+    [aList printList];
+    
+    NSLog(@"swapedListHead after swap nodes:");
+    
+    [swapedListHead printList];
+}
+
+
+
 @end
 
 
+
+@implementation LinkedListNode
+
+-(id)init
+{
+    self = [super init];
+    
+    if(self)
+    {
+        _value = -1;
+        _nodeIndex = 0;
+        _nextNode = nil;
+    }
+    
+    return self;
+}
+
+-(id)initWithValue:(int)value
+{
+    self = [super init];
+    if(self)
+    {
+        _value = value;
+        _nodeIndex = 0;
+        _nextNode = nil;
+    }
+    
+    return self;
+}
+
+-(id)initWithValue:(int)value andIndex:(int)index
+{
+    self = [super init];
+    if(self)
+    {
+        _value = value;
+        _nodeIndex = index;
+        _nextNode = nil;
+    }
+    
+    return self;
+}
+
+-(void)setNodeValue:(int)value{ _value = value;}
+-(void)setNextNode:(LinkedListNode * )nextNode{_nextNode = nextNode;}
+
+-(int)getValue{return _value;}
+-(LinkedListNode *)getNextNode{return _nextNode;}
+
+
+-(void)addValue:(int)value
+{
+    if([self getValue] != -1)
+        if([self getNextNode])
+            [_nextNode addValue:value];
+        else
+        {
+            LinkedListNode * aNewNode = [[LinkedListNode alloc] initWithValue:value andIndex:_nodeIndex+1];
+            [self setNextNode:aNewNode];
+        }
+        else
+            [self setNodeValue:value];
+}
+
+-(void)printList
+{
+    NSLog(@"value: %i", _value);
+    if([self getNextNode])
+        [_nextNode printList];
+}
+
+-(void)swapValues
+{
+    if(![self getNextNode])
+        return;
+    
+    if(_nodeIndex % 2 == 0)
+    {
+        int temp = [_nextNode getValue];
+        [_nextNode setNodeValue: [self getValue]];
+        [self setNodeValue: temp];
+    }
+    else
+    {
+        [_nextNode swapValues];
+    }
+    
+}
+
+-(LinkedListNode * )swapNodes
+{
+    if([self getNextNode])
+    {
+        LinkedListNode * temporalNextNextNode = [[self getNextNode] getNextNode];//save next next node link
+        [_nextNode setNextNode: self]; // break nextNode breaks with its next node (previusly saved) and points self
+        LinkedListNode * temporalNextNode = _nextNode;//save next node link before break it.
+        [self setNextNode:[temporalNextNextNode swapNodes]];//now self points to the now-swaped node between temporal and its Next node;
+        
+        return temporalNextNode;//return swaped 
+        
+    }
+    return self;
+}
+
+@end
 
 
 @implementation BinaryTree_p

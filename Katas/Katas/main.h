@@ -149,6 +149,25 @@
 
 @end
 
+@interface LinkedListNode : NSObject
+
+@property(nonatomic) int nodeIndex;
+@property(nonatomic) int value;
+@property(nonatomic) LinkedListNode * nextNode;
+-(id)init;
+-(id)initWithValue:(int)value;
+-(id)initWithValue:(int)value andIndex:(int)index;
+-(void)setNodeValue:(int)value;
+-(void)setNextNode:(LinkedListNode * )nextNode;
+-(int)getValue;
+-(LinkedListNode *)getNextNode;
+-(void)addValue:(int)value;
+-(void)printList;
+-(void)swapValues;
+-(LinkedListNode * )swapNodes;
+
+@end
+
 
 @interface Practice_Problems : NSObject
 
@@ -157,4 +176,6 @@
 -(NSString * ) problem_3_AdditionTwoBinaryNumbers:(NSString *)binaryStringNumberA and:(NSString * )binaryStringNumberB;
 -(BOOL) problem_4_isValidPalindrome:(NSString *)possiblePalindrome;
 -(void)problem_5_BinaryTreeToListInOrder;
+-(void)problem_6_LinkedListPairSwapedNodes;
+
 @end

@@ -97,7 +97,8 @@ int main(int argc, const char * argv[]) {
         
 //        NSLog(@"is ValidThis Palindrome '%@': %hhd",possiblePalindrome3,isValidThisPalindrome);
         
-        [questions problem_5_BinaryTreeToListInOrder];
+//        [questions problem_5_BinaryTreeToListInOrder];
+        [questions problem_6_LinkedListPairSwapedNodes];
 
         
         
