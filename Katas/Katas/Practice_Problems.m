@@ -180,6 +180,20 @@
  which, when given an input array that has content that can be either NSNumbers or NSArray, will expand all arrays embedded inside it.
  
  That is, given an input of something like @[@1, @[@2, @[@3, @4]], @[ ], @5], each call to nextObject will display items in the expected order. */
+
+/*
+ 
+ Given a dictionary of words, return an array of the words whose match. (i.e. pattern "c.t" match with "cat", "cut", etc. because the dot notation stand for ANY character).
+ 
+ 
+ SUGGEST: use suffix tree, for(for()) is not a good solution.
+ 
+
+ */
+
+
+
+
 -(void )problem_5_BinaryTreeToListInOrder
 {
     /*
@@ -251,6 +265,26 @@
 }
 
 
+-(int)problem_7_arraySumElementsMultiplyDeep:(NSArray *)anArray andDeep:(int)deep
+{
+    /*
+     Given an array that contains numbers and/or other nested arrays, write an algorithm to come up with a sum of these elements, multiplied by the depth (or how many arrays deep) you are.
+     
+     For example, what would you do with an input array that looks like:
+     
+     [ 2, 3, [ 9, [ 1, 2 ]], 4]
+     */
+    
+    int sum = 0;
+    for(id i in anArray)
+        if([i isKindOfClass:[NSArray class]])
+            sum += [self problem_7_arraySumElementsMultiplyDeep:i andDeep:deep+1];//problem_7_arraySumElementsMultiplyDeep(i, deep+1);
+        else
+            sum += [(NSNumber * )i intValue];
+
+    return sum*deep;
+
+}
 
 @end
 

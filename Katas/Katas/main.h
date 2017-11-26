@@ -177,5 +177,6 @@
 -(BOOL) problem_4_isValidPalindrome:(NSString *)possiblePalindrome;
 -(void)problem_5_BinaryTreeToListInOrder;
 -(void)problem_6_LinkedListPairSwapedNodes;
+-(int)problem_7_arraySumElementsMultiplyDeep:(NSArray *)anArray andDeep:(int)deep;
 
 @end

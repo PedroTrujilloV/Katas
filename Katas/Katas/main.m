@@ -98,11 +98,13 @@ int main(int argc, const char * argv[]) {
 //        NSLog(@"is ValidThis Palindrome '%@': %hhd",possiblePalindrome3,isValidThisPalindrome);
         
 //        [questions problem_5_BinaryTreeToListInOrder];
-        [questions problem_6_LinkedListPairSwapedNodes];
+//        [questions problem_6_LinkedListPairSwapedNodes];
+        
+        NSArray * anArray = [NSArray arrayWithObjects: @6, @3, @[ @9, @[ @1, @[@2,@8] ]], @4, nil];
+        int result = [questions problem_7_arraySumElementsMultiplyDeep:anArray andDeep:1];
+        NSLog(@"sum result: %i",result);
 
         
-        
-       
     }
     return 0;
 }
