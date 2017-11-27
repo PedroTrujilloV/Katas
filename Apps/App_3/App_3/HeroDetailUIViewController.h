@@ -17,5 +17,7 @@
 @property(nonatomic , weak) IBOutlet UITextView * porwersUITextView;
 
 @property Hero * aHero;
+-(NSArray*)getCommonSuperViews:(UIView *)viewA and:(UIView * )viewB;
+-(NSArray*)getSuperViews:(UIView *)aView;
 
 @end

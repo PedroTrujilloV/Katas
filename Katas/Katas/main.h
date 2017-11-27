@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface Kata1_DataTypes : NSObject
     
     - (void) introductionToDataTypes;
@@ -179,5 +178,8 @@
 -(void)problem_6_LinkedListPairSwapedNodes;
 -(int)problem_7_arraySumElementsMultiplyDeep:(NSArray *)anArray andDeep:(int)deep;
 -(NSArray *) problem_8_allCombinationsInPhoneNumberKeyLetters:(NSArray *) numbersArray and:(NSString *) curentCombination;
+//Necessary UIKit to test.
+//-(NSArray*)problem_9_getCommonSuperViews:(UIView *)viewA and:(UIView * )viewB;
+//-(NSArray*)getSuperViews:(UIView *)aView;
 
 @end

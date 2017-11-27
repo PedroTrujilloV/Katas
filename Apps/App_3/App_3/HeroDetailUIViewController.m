@@ -25,7 +25,33 @@
     _nameUILabel.text = [_aHero name];
     _homeworldUILabel.text = [_aHero homeWorld];
     _porwersUITextView.text = [_aHero powers];
+    
+    NSLog(@"common views: %@", [self getCommonSuperViews:self.view and:_porwersUITextView  ]);
 }
+
+-(NSArray*)getCommonSuperViews:(UIView *)viewA and:(UIView * )viewB
+{
+    NSMutableArray * viewsArrayA = [NSMutableArray arrayWithArray:[self getSuperViews:viewA]];
+    NSMutableArray * viewsArrayB = [NSMutableArray arrayWithArray:[self getSuperViews:viewB]];
+    
+    
+    NSMutableSet * intersection = [NSMutableSet setWithArray:viewsArrayA];
+    [intersection intersectsSet:[NSSet setWithArray:viewsArrayB]];
+
+    return [intersection allObjects];
+}
+
+-(NSArray*)getSuperViews:(UIView *)aView
+{
+    NSMutableArray * viewsArray = [NSMutableArray arrayWithObject:aView];
+    if([aView superview])
+        [viewsArray addObjectsFromArray:[self getSuperViews:[aView superview]]];
+    return viewsArray;
+}
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

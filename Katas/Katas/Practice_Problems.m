@@ -156,7 +156,6 @@
 
 
 /*
- How to detect a common superview.
  
 
  The same list, back to inorder binary tree
@@ -331,6 +330,29 @@
     return numbersCombinations;
     
 }
+
+//Necessary test with UIKit.
+//-(NSArray*)problem_9_getCommonSuperViews:(UIView *)viewA and:(UIView * )viewB
+//{
+//    /* How to detect a common superview. */
+//    
+//    NSMutableArray * viewsArrayA = [NSMutableArray arrayWithArray:[self getSuperViews:viewA]];
+//    NSMutableArray * viewsArrayB = [NSMutableArray arrayWithArray:[self getSuperViews:viewB]];
+//    
+//    
+//    NSMutableSet * intersection = [NSMutableSet setWithArray:viewsArrayA];
+//    [intersection intersectsSet:[NSSet setWithArray:viewsArrayB]];
+//    
+//    return [intersection allObjects];
+//}
+//
+//-(NSArray*)getSuperViews:(UIView *)aView
+//{
+//    NSMutableArray * viewsArray = [NSMutableArray arrayWithObject:aView];
+//    if([aView superview])
+//        [viewsArray addObjectsFromArray:[self getSuperViews:[aView superview]]];
+//    return viewsArray;
+//}
 
 @end
 
