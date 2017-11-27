@@ -286,6 +286,52 @@
 
 }
 
+-(NSArray *) problem_8_allCombinationsInPhoneNumberKeyLetters:(NSArray *) numbersArray and:(NSString *) curentCombination
+{
+    /*
+     Given the following hashmap for numeric to alpha translation of a telephone keypad:keyBoardDict
+     
+     Write a method that takes a phone number as input and returns all possible letter combinations for that phone number.
+     */
+    NSDictionary * keyBoardDict = @{
+                                    @1:@[@"1"],
+                                    @2:@[@"A",@"B",@"C"],
+                                    @3:@[@"D",@"E",@"F"],
+                                    @4:@[@"G",@"H",@"I"],
+                                    @5:@[@"J",@"K",@"L"],
+                                    @6:@[@"M",@"N",@"O"],
+                                    @7:@[@"P",@"Q",@"R",@"S"],
+                                    @8:@[@"T",@"U",@"V"],
+                                    @9:@[@"W",@"X",@"Y",@"Z"],
+                                    @0:@[@"0"]};
+    
+    NSMutableArray * numbersCombinations = [[NSMutableArray alloc] init];
+    NSMutableArray * remainNumbers = [NSMutableArray arrayWithArray: [numbersArray subarrayWithRange:NSMakeRange(1, numbersArray.count-1)]];
+    
+    
+    if([numbersArray count] >0)
+        for(NSString * i in keyBoardDict[[numbersArray firstObject]])
+        {
+            NSMutableString * combination = [NSMutableString stringWithFormat:@"%@", curentCombination ];
+            
+            combination = [ NSMutableString stringWithString:  [combination stringByAppendingString: i ]];
+            
+            if([remainNumbers count] >0)
+            {
+                NSArray * posibleCombinations = [self problem_8_allCombinationsInPhoneNumberKeyLetters: remainNumbers and:combination];
+                [numbersCombinations addObjectsFromArray: posibleCombinations];
+            }
+            else
+                [numbersCombinations addObject: combination];
+        }
+    else
+        [numbersCombinations addObject: curentCombination];
+    
+    
+    return numbersCombinations;
+    
+}
+
 @end
 
 

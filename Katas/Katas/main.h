@@ -178,5 +178,6 @@
 -(void)problem_5_BinaryTreeToListInOrder;
 -(void)problem_6_LinkedListPairSwapedNodes;
 -(int)problem_7_arraySumElementsMultiplyDeep:(NSArray *)anArray andDeep:(int)deep;
+-(NSArray *) problem_8_allCombinationsInPhoneNumberKeyLetters:(NSArray *) numbersArray and:(NSString *) curentCombination;
 
 @end
