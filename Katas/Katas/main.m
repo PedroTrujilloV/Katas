@@ -105,10 +105,18 @@ int main(int argc, const char * argv[]) {
 //        NSLog(@"sum result: %i",result);
         
 //        NSArray * result = [questions problem_8_allCombinationsInPhoneNumberKeyLetters:@[@1,@2,@3] and: @""];
-         NSArray * result = [questions problem_8_allCombinationsInPhoneNumberKeyLetters:@[@4,@7,@0,@6,@8,@3,@8,@5,@3,@9] and: @""];
+//         NSArray * result = [questions problem_8_allCombinationsInPhoneNumberKeyLetters:@[@4,@7,@0,@6,@8,@3,@8,@5,@3,@9] and: @""];
+//        
+//        NSLog(@"Hello, World!====================================");
+//        NSLog(@"result: %@",result);
         
-        NSLog(@"Hello, World!====================================");
-        NSLog(@"result: %@",result);
+            NSRange rangeA = NSMakeRange(20,120);
+            NSRange rangeB = NSMakeRange(75,135);
+        
+            NSString * result = [questions problem_10_intersectionOfTwoRanges:rangeA and:rangeB];
+        
+            NSLog(@"Intersection: %@",result );
+
         
     }
     return 0;

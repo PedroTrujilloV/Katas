@@ -329,6 +329,7 @@
     
     return numbersCombinations;
     
+    
 }
 
 //Necessary test with UIKit.
@@ -353,6 +354,19 @@
 //        [viewsArray addObjectsFromArray:[self getSuperViews:[aView superview]]];
 //    return viewsArray;
 //}
+
+-(NSString *)problem_10_intersectionOfTwoRanges:(NSRange)rangeA and:(NSRange)rangeB
+{
+    /*
+     Find the intersection between 2 NSRanges
+     */
+//    NSRange rangeA = NSMakeRange(20,120);
+//    NSRange rangeB = NSMakeRange(75,135);
+    
+    NSRange intersection = NSIntersectionRange(rangeA, rangeB);
+    
+    return NSStringFromRange(intersection);
+}
 
 @end
 

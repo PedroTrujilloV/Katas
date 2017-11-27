@@ -181,5 +181,5 @@
 //Necessary UIKit to test.
 //-(NSArray*)problem_9_getCommonSuperViews:(UIView *)viewA and:(UIView * )viewB;
 //-(NSArray*)getSuperViews:(UIView *)aView;
-
+-(NSString *)problem_10_intersectionOfTwoRanges:(NSRange)rangeA and:(NSRange)rangeB;
 @end
