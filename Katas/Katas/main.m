@@ -110,12 +110,14 @@ int main(int argc, const char * argv[]) {
 //        NSLog(@"Hello, World!====================================");
 //        NSLog(@"result: %@",result);
         
-            NSRange rangeA = NSMakeRange(20,120);
-            NSRange rangeB = NSMakeRange(75,135);
+//            NSRange rangeA = NSMakeRange(20,120);
+//            NSRange rangeB = NSMakeRange(75,135);
+//        
+//            NSString * result = [questions problem_10_intersectionOfTwoRanges:rangeA and:rangeB];
+//        
+//            NSLog(@"Intersection: %@",result );
         
-            NSString * result = [questions problem_10_intersectionOfTwoRanges:rangeA and:rangeB];
-        
-            NSLog(@"Intersection: %@",result );
+        [questions problem_11_getLongestPathFromTree];
 
         
     }

@@ -139,11 +139,17 @@
 -(void)setRightBranch:(BinaryTree_p *)rightBranch;
 -(void)setParentBranch:(BinaryTree_p *)parentBranch;
 
+-(int)getValue;
+-(BinaryTree_p * )getRightBranch;
+-(BinaryTree_p * )getLeftBranch;
+-(BinaryTree_p *)getParentBranch;
+
 -(NSMutableArray * )preOrderTraversal;
 -(NSMutableArray * )inOrderTraversal;
 -(NSMutableArray * )posOrderTraversal;
 
 -(void)sortedInsert:(int)aValue;
+-(NSMutableArray *)getLongestPathFrom:(BinaryTree_p *)aNode and:(NSMutableArray *)path;
 
 
 @end
@@ -182,4 +188,5 @@
 //-(NSArray*)problem_9_getCommonSuperViews:(UIView *)viewA and:(UIView * )viewB;
 //-(NSArray*)getSuperViews:(UIView *)aView;
 -(NSString *)problem_10_intersectionOfTwoRanges:(NSRange)rangeA and:(NSRange)rangeB;
+-(void)problem_11_getLongestPathFromTree;
 @end

@@ -70,6 +70,8 @@
     return NO;
 }
 
+
+
 -(NSString * ) problem_3_AdditionTwoBinaryNumbers:(NSString *)binaryStringNumberA and:(NSString * )binaryStringNumberB
 {
     
@@ -368,6 +370,30 @@
     return NSStringFromRange(intersection);
 }
 
+-(void)problem_11_getLongestPathFromTree
+{
+    BinaryTree_p * aTree = [[BinaryTree_p alloc] initWithValue:7];
+    [aTree sortedInsert:3];
+    [aTree sortedInsert:9];
+    [aTree sortedInsert:7];
+    [aTree sortedInsert:0];
+    [aTree sortedInsert:8];
+    [aTree sortedInsert:2];
+    [aTree sortedInsert:4];
+    [aTree sortedInsert:6];
+    [aTree sortedInsert:1];
+    [aTree sortedInsert:5];
+    [aTree sortedInsert:12];
+    [aTree sortedInsert:10];
+    [aTree sortedInsert:14];
+    
+    NSMutableArray * mutableArray = [[NSMutableArray alloc] init];
+    
+    NSArray *longesPath =[NSArray arrayWithArray: [aTree getLongestPathFrom: aTree and: mutableArray ]];
+    
+    NSLog(@"longest path: %@",longesPath);
+}
+
 @end
 
 
@@ -531,7 +557,7 @@
 
 -(int)getValue
 {
-    return -1;
+    return _value;
 }
 
 -(BinaryTree_p * )getLeftBranch
@@ -634,7 +660,26 @@
                     }
     
 }
-
+-(NSMutableArray *)getLongestPathFrom:(BinaryTree_p *)aNode and:(NSMutableArray *)path
+{
+    NSMutableArray *aNewPath = [NSMutableArray arrayWithArray:path]; //necesary mutable copy and not pass the path directly, otherwise the path will be modified in each iteration
+    [aNewPath addObject:@([aNode getValue])];
+    NSMutableArray * rightPath = [[NSMutableArray alloc] init];
+    NSMutableArray * leftPath = [[NSMutableArray alloc] init];
+    
+    if([aNode getLeftBranch])
+        leftPath = [aNode getLongestPathFrom: [aNode getLeftBranch] and: aNewPath];
+    if([aNode getRightBranch])
+        rightPath = [aNode getLongestPathFrom: [aNode getRightBranch] and: aNewPath];
+    
+    if(rightPath.count >= aNewPath.count)//here you can adjust the method to get the longes or shortest path
+        aNewPath = rightPath;
+    
+    if(leftPath.count >= aNewPath.count)//here you can adjust the method to get the longes or shortest path
+        aNewPath = leftPath;
+    
+    return aNewPath;
+}
 @end
 
 
