@@ -193,7 +193,26 @@
  */
 
 
+/*
+ 
+ given an array of words, how to eliminate the duplicates?
+ 
+ */
 
+/*
+ You have a simple tree structure Ⓐ and its clone ⓐ.
+ 
+ Each node in the tree has a pointer to it's parent as well as an array of its children.
+
+ */
+
+/*
+ - Convert a string into an integer without using the inbuilt frameworks.
+ */
+
+/*
+ Given a binary encoded string, find the range of all consecutive 1's and use them to draw an arc.
+ */
 
 -(void )problem_5_BinaryTreeToListInOrder
 {
@@ -372,6 +391,8 @@
 
 -(void)problem_11_getLongestPathFromTree
 {
+    
+    
     BinaryTree_p * aTree = [[BinaryTree_p alloc] initWithValue:7];
     [aTree sortedInsert:3];
     [aTree sortedInsert:9];
@@ -392,6 +413,48 @@
     NSArray *longesPath =[NSArray arrayWithArray: [aTree getLongestPathFrom: aTree and: mutableArray ]];
     
     NSLog(@"longest path: %@",longesPath);
+    
+}
+
+-(void) problem_12_isIndeedABinaryTree
+{
+    /*
+     Verify that a binary search tree is indeed a binary search  tree.
+     */
+    
+    BinaryTree_p * aTree = [[BinaryTree_p alloc] initWithValue:7];
+    [aTree sortedInsert:3];
+    [aTree sortedInsert:9];
+    [aTree sortedInsert:7];
+    [aTree sortedInsert:0];
+    [aTree sortedInsert:8];
+    [aTree sortedInsert:2];
+    [aTree sortedInsert:4];
+    [aTree sortedInsert:6];
+    [aTree sortedInsert:1];
+    [aTree sortedInsert:5];
+    [aTree sortedInsert:12];
+    [aTree sortedInsert:10];
+    [aTree sortedInsert:14];
+    
+    
+    NSMutableArray * queue = [[NSMutableArray alloc] init];
+    NSMutableArray * nodeTable = [[NSMutableArray alloc] init];
+    
+    BOOL isTree = [aTree isABinarrySearchTreeNoRecursive:aTree Queue:queue VisitedNodes:nodeTable];
+    
+    NSLog(@"Is 'aTree' a binary tree?: %hhu",isTree);
+    
+    BinaryTree_p * aNodeChild = [[aTree getRightBranch] getRightBranch];
+    
+    
+    //after swap some nodes from left to right what happen?
+    
+    [[[aTree getLeftBranch] getLeftBranch] setLeftBranch:aNodeChild];
+    
+    BOOL isTree2 = [aTree isABinarrySearchTree:aTree Queue:queue VisitedNodes:nodeTable];
+    
+    NSLog(@"And Now? is 'aTree' a binary tree?: %hhu",isTree2);
 }
 
 @end
@@ -680,8 +743,79 @@
     
     return aNewPath;
 }
+
+
+-(BOOL)isABinarrySearchTree:(BinaryTree_p * )aNode Queue:(NSMutableArray *)queue VisitedNodes:(NSMutableArray *)nodeTable
+{
+    NSLog(@" - queue: %@",queue);
+    NSLog(@" - nodeTable: %@",nodeTable);
+    
+    // [queue insertObject: aNode atIndex:0];
+    [queue addObject: aNode];
+    
+    if([nodeTable containsObject:aNode])
+        return NO;
+    
+    BinaryTree_p * temp = [queue objectAtIndex:[queue count]-1];
+    [nodeTable addObject:temp];
+    [queue removeObjectAtIndex:[queue count]-1];
+    
+    if([temp getLeftBranch])
+    {
+        if([temp getLeftBranch] != [temp getParentBranch])
+            [temp isABinarrySearchTree:[temp getLeftBranch] Queue:queue VisitedNodes:nodeTable];
+        else
+            return NO;
+    }
+    
+    if([temp getRightBranch])
+    {
+        if([temp getRightBranch] != [temp getParentBranch])
+            [temp isABinarrySearchTree:[temp getRightBranch] Queue:queue VisitedNodes:nodeTable];
+        else
+            return NO;
+    }
+    
+    return YES;
+}
+
+-(BOOL)isABinarrySearchTreeNoRecursive:(BinaryTree_p * )aNode Queue:(NSMutableArray *)queue VisitedNodes:(NSMutableArray *)nodeTable
+{
+    
+    [queue addObject: aNode];
+    
+    while(queue.count > 0)
+    {
+        NSLog(@" - queue: %@",queue);
+        NSLog(@" - nodeTable: %@",nodeTable);
+        
+        
+        BinaryTree_p * temp = [queue objectAtIndex:[queue count]-1];
+        
+        if([nodeTable containsObject:temp])
+            return NO;
+        
+        [nodeTable addObject:temp];
+        [queue removeObjectAtIndex:[queue count]-1];
+        
+        if([temp getLeftBranch])
+        {
+            if([temp getLeftBranch] != [temp getParentBranch])
+                [queue insertObject: [temp getLeftBranch] atIndex:0];
+            else
+                return NO;
+        }
+        
+        if([temp getRightBranch])
+        {
+            if([temp getRightBranch] != [temp getParentBranch])
+                [queue insertObject: [temp getRightBranch] atIndex:0];
+            else
+                return NO;
+        }
+    }
+    
+    return YES;
+}
 @end
 
-
-
-//https://coderpad.io/YN7G3FJG

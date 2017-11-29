@@ -151,6 +151,8 @@
 -(void)sortedInsert:(int)aValue;
 -(NSMutableArray *)getLongestPathFrom:(BinaryTree_p *)aNode and:(NSMutableArray *)path;
 
+-(BOOL)isABinarrySearchTree:(BinaryTree_p * )aNode Queue:(NSMutableArray *)queue VisitedNodes:(NSMutableArray *)nodeTable;
+-(BOOL)isABinarrySearchTreeNoRecursive:(BinaryTree_p * )aNode Queue:(NSMutableArray *)queue VisitedNodes:(NSMutableArray *)nodeTable;
 
 @end
 
@@ -189,4 +191,5 @@
 //-(NSArray*)getSuperViews:(UIView *)aView;
 -(NSString *)problem_10_intersectionOfTwoRanges:(NSRange)rangeA and:(NSRange)rangeB;
 -(void)problem_11_getLongestPathFromTree;
+-(void) problem_12_isIndeedABinaryTree;
 @end

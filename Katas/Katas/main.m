@@ -117,7 +117,8 @@ int main(int argc, const char * argv[]) {
 //        
 //            NSLog(@"Intersection: %@",result );
         
-        [questions problem_11_getLongestPathFromTree];
+//        [questions problem_11_getLongestPathFromTree];
+        [questions problem_12_isIndeedABinaryTree];
 
         
     }
