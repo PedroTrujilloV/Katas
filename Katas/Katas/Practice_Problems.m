@@ -19,34 +19,24 @@
     // This problems has a time complexity of O(n)
     
     NSLog(@"given array before: %@", givenArray);
-
     
-    NSMutableArray * localCopy = (NSMutableArray*)[givenArray mutableCopy];
+    NSMutableArray * anArray = [NSMutableArray arrayWithArray:givenArray];
     
-    int counter = 0;
+    NSLog(@"anArray: %@",anArray);
     
-    void (^swapPositions)(int ,int) = ^(int  positionA, int  positionB )
-    {
-        NSLog(@"swaped : %i and %i", positionA, positionB);
-        id  temporal = [localCopy objectAtIndex:positionA];
-        [localCopy removeObjectAtIndex:positionA];
-        [localCopy insertObject:temporal atIndex:positionB];
-    };
+    int counter =  0;
     
-    for(int i = 0; i < localCopy.count; i++)
-    {
-        
-        if([localCopy[i] intValue] == 0)
-            swapPositions( i, (int)([localCopy count]-1) );
-        else
+    for(int i = 0 ; i < anArray.count; i++ )
+        if([[anArray objectAtIndex:i] intValue] != 0 )
         {
+            [anArray replaceObjectAtIndex:counter withObject:[[anArray objectAtIndex:i] copy]];
             counter++;
-            swapPositions( i, 0 );
         }
-
-    }
     
-    NSLog(@"given array after: %@", localCopy);
+    for(int i = counter ; i < anArray.count; i++ )
+        [anArray replaceObjectAtIndex:i withObject:@(0)];
+    
+    NSLog(@"anArray: %@",anArray);
     
     return counter;
     

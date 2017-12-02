@@ -65,6 +65,10 @@ int main(int argc, const char * argv[]) {
         
 //        [kata6 dictionaryImplementation];
         
+        
+        Algorithms * algorithmsDemo = [[Algorithms alloc]init];
+        [algorithmsDemo mergeSort];
+        
         Practice_Problems * questions = [[Practice_Problems alloc]init];
         
 //        NSArray * givenArray = [NSArray arrayWithObjects:@6,@2,@1,@4,@0,@0,@1,@5,@0,@0,@3, nil];

@@ -175,6 +175,18 @@
 
 @end
 
+/*----------------------- Algorithms -----------------------*/
+
+@interface MergeSort:NSObject
+-(NSArray*)merge:(NSArray* )leftArray and:(NSArray*)rightArray;
+-(NSArray *)sort:(NSArray * )anArray;
+
+@end
+
+@interface Algorithms:NSObject
+-(void)mergeSort;
+@end
+/*----------------------- end Algorithms -----------------------*/
 
 @interface Practice_Problems : NSObject
 
