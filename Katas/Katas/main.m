@@ -67,7 +67,7 @@ int main(int argc, const char * argv[]) {
         
         
         Algorithms * algorithmsDemo = [[Algorithms alloc]init];
-        [algorithmsDemo mergeSort];
+//        [algorithmsDemo mergeSort];
         
         Practice_Problems * questions = [[Practice_Problems alloc]init];
         
@@ -122,7 +122,12 @@ int main(int argc, const char * argv[]) {
 //            NSLog(@"Intersection: %@",result );
         
 //        [questions problem_11_getLongestPathFromTree];
-        [questions problem_12_isIndeedABinaryTree];
+//        [questions problem_12_isIndeedABinaryTree];
+//        [questions problem_13_FBSuperEnumerator];
+        
+        NSArray * myArray = @[@"CAT", @"CAR", @"CAR", @"CAR", @"DOG", @"CAT", @"CAR", @"MOUSE"];
+        NSLog(@"with duplicates: %@", myArray);
+        NSLog(@"without duplicates: %@",[questions problem_15_removeDuplicatesInArray:myArray]);
 
         
     }

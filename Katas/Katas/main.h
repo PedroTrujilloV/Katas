@@ -188,6 +188,21 @@
 @end
 /*----------------------- end Algorithms -----------------------*/
 
+/*----------------------- FBSuperEnumerator -----------------------*/
+
+@interface FBSuperEnumerator: NSEnumerator
+
+- (id)initWithArray:(NSArray*)anArray;
+- (id) nextObject;
+- (NSArray *) allObjects;
+@end
+
+@interface NSArray (FB)
+-(FBSuperEnumerator*)objectFBSuperEnumerator;
+@end
+/*----------------------- end FBSuperEnumerator -----------------------*/
+
+
 @interface Practice_Problems : NSObject
 
 -(int) problem_1_moveAllZeros:(NSArray *)givenArray;
@@ -204,4 +219,11 @@
 -(NSString *)problem_10_intersectionOfTwoRanges:(NSRange)rangeA and:(NSRange)rangeB;
 -(void)problem_11_getLongestPathFromTree;
 -(void) problem_12_isIndeedABinaryTree;
+-(void) problem_13_FBSuperEnumerator;
+-(NSArray* ) problem_15_removeDuplicatesInArray:(NSArray * )anArray;
+
 @end
+
+
+
+

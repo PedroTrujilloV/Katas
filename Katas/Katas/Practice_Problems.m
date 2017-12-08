@@ -163,14 +163,6 @@
  */
 
 
-/*Design an enumerator (e.g. named FBSuperEnumerator) that has two API's:
- 
- - (id) nextObject;
- - (NSArray *) allObjects; // all objects remaining
- 
- which, when given an input array that has content that can be either NSNumbers or NSArray, will expand all arrays embedded inside it.
- 
- That is, given an input of something like @[@1, @[@2, @[@3, @4]], @[ ], @5], each call to nextObject will display items in the expected order. */
 
 /*
  
@@ -181,7 +173,8 @@
  
 
  */
-
+/*
+ Write a function that takes in an array of strings and outputs a dictionary with the first character of each string as the key and the remaining characters as the object.*/
 
 /*
  
@@ -447,7 +440,92 @@
     NSLog(@"And Now? is 'aTree' a binary tree?: %hhu",isTree2);
 }
 
+-(void) problem_13_FBSuperEnumerator
+{
+    // Design an enumerator (e.g. named FBSuperEnumerator) that  has two API's: - (id) nextObject; - (NSArray *) allObjects; // all objects remaining which, when given an input array that has content that can be either NSNumbers or NSArray, will expand all arrays embedded inside it. That is, given an input of something like @[@1, @[@2, @[@3, @4]], @[ ], @5], each call to nextObject will display items in the expected order.
+    
+    NSArray * nestedArray =  @[@1, @[@2, @[@3, @4]], @[ ], @5];
+    FBSuperEnumerator * FBEnumerator = [nestedArray objectFBSuperEnumerator];
+
+//    NSLog(@"my FBenumerator allObjects: %@",[FBEnumerator allObjects]);
+    
+    id anObject = nil;
+    while((anObject = [FBEnumerator nextObject]))
+        NSLog(@"anObject: %@",anObject);
+
+}
+
+//Necessary test with UIKit.
+//-(UIView * ) problem_14_return_b_GivenNodeB:(UIView *)BView And_a:(UIView * )aView
+//{
+    /*
+     You have a simple tree structure Ⓐ and its clone ⓐ. Given an original tree's node Ⓑ, find and return the cloned tree's node ⓑ that is the clone of node Ⓑ.
+     
+     Each node in the tree has a pointer to its parent as well as an array of its children.
+     
+     ** You are given B and a. Return b.
+     
+     Original       Clone
+     Ⓐ            ⓐ
+     ┏━┻━━┓        ┏━┻━━┓
+     ◯    ◯        ◯    ◯
+     ┏┻┓ ┏━╋━┓     ┏┻┓ ┏━╋━┓
+     ◯ ◯ ◯ ◯ ◯     ◯ ◯ ◯ ◯ ◯
+     ┏┻┓  ┃        ┏┻┓  ┃
+     ◯ Ⓑ  ◯       ◯ ⓑ  ◯
+     
+     */
+    
+    // leetcode.com
+    
+//
+//    UIView * myParent = [BView superview];
+//    NSMutableArray * pathViewsArray = [[NSMutableArray alloc]init];
+//    
+//    
+//    while([myParent superview])
+//    {
+//        [pathViewsArray addObject: [[myParent subviews] indexOfObject:BView]];
+//        myParent = [myParent superview];
+//    }
+//    
+//    NSArray * reversedPath = [[pathViewsArray reverseObjectEnumerator] allObjects];
+//    
+//    UIView * childView = aView;
+//    int i =0;
+//    for(NSNumber * index in reversedPath)
+//    {
+//        childView = [[childView subviews] objectAtIndex:[index intValue]];
+//    }
+//    
+//    return childView;
+//        
+//    
+//}
+
+-(NSArray* ) problem_15_removeDuplicatesInArray:(NSArray * )anArray
+{
+//    Given a string, remove all the duplicate characters (not necessarily consecutive)
+//    ["CAT", "CAR", "CAR", "DOG", "CAT", "MOUSE"]
+//    ["CAT", "CAR", "DOG", "MOUSE"]
+    NSMutableArray * aMutableArray = [NSMutableArray arrayWithArray:anArray];
+    NSMutableDictionary * exist = [[NSMutableDictionary alloc] init];
+    
+    int j = 0;
+    for(id word in anArray)
+        if(![exist objectForKey:word])
+        {
+            [aMutableArray replaceObjectAtIndex:j++ withObject:word];
+            [exist setValue:@YES forKey:word];
+        }
+    for(NSUInteger i = [anArray count] - 1 ; i >= j; i--)
+        [aMutableArray removeObjectAtIndex:i];
+    
+    return aMutableArray;
+}
+
 @end
+
 
 
 

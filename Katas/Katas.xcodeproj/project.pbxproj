@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		376205CA1FBBC4B4005F06EA /* Kata1_2_DataTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 376205C91FBBC4B4005F06EA /* Kata1_2_DataTypes.m */; };
 		376B6DEB1FBD28E2008668F7 /* Kata2_2_Arrays.m in Sources */ = {isa = PBXBuildFile; fileRef = 376B6DEA1FBD28E2008668F7 /* Kata2_2_Arrays.m */; };
+		376DF5761FD8CFA90024E2D4 /* NSArray+FBSuperEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 376DF5751FD8CFA90024E2D4 /* NSArray+FBSuperEnumerator.m */; };
+		37CE3E731FD7976600117609 /* eraseme.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CE3E721FD7976600117609 /* eraseme.m */; };
 		37E491B01FC89E68005B7119 /* Algorithms.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E491AF1FC89E68005B7119 /* Algorithms.m */; };
 		37E491B21FC89E91005B7119 /* Practice_Problems.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E491B11FC89E91005B7119 /* Practice_Problems.m */; };
 		EB4E7EE91D9AD4C6009B4C0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4E7EE81D9AD4C6009B4C0D /* main.m */; };
@@ -36,6 +38,9 @@
 /* Begin PBXFileReference section */
 		376205C91FBBC4B4005F06EA /* Kata1_2_DataTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kata1_2_DataTypes.m; sourceTree = "<group>"; };
 		376B6DEA1FBD28E2008668F7 /* Kata2_2_Arrays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kata2_2_Arrays.m; sourceTree = "<group>"; };
+		376DF5751FD8CFA90024E2D4 /* NSArray+FBSuperEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FBSuperEnumerator.m"; sourceTree = "<group>"; };
+		37B129A41FD47D1500D42E9F /* unsafte_unretained.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = unsafte_unretained.txt; sourceTree = "<group>"; };
+		37CE3E721FD7976600117609 /* eraseme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eraseme.m; sourceTree = "<group>"; };
 		37E491AF1FC89E68005B7119 /* Algorithms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Algorithms.m; sourceTree = "<group>"; };
 		37E491B11FC89E91005B7119 /* Practice_Problems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Practice_Problems.m; sourceTree = "<group>"; };
 		EB4E7EE51D9AD4C6009B4C0D /* Katas */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Katas; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +86,7 @@
 		EB4E7EE71D9AD4C6009B4C0D /* Katas */ = {
 			isa = PBXGroup;
 			children = (
+				37B129A41FD47D1500D42E9F /* unsafte_unretained.txt */,
 				EB68E9E41DA6C92100734F16 /* Kata1.playground */,
 				EB4E7EE81D9AD4C6009B4C0D /* main.m */,
 				EB4E7EF21D9C2E90009B4C0D /* main.h */,
@@ -95,6 +101,8 @@
 				EB68E9E51DA6CE6500734F16 /* Kata6_Dictionary.m */,
 				37E491AF1FC89E68005B7119 /* Algorithms.m */,
 				37E491B11FC89E91005B7119 /* Practice_Problems.m */,
+				376DF5751FD8CFA90024E2D4 /* NSArray+FBSuperEnumerator.m */,
+				37CE3E721FD7976600117609 /* eraseme.m */,
 			);
 			path = Katas;
 			sourceTree = "<group>";
@@ -161,6 +169,8 @@
 				EB68E9E61DA6CE6600734F16 /* Kata6_Dictionary.m in Sources */,
 				EB4E7EF61D9C3464009B4C0D /* Kata1_DataTypes.m in Sources */,
 				37E491B21FC89E91005B7119 /* Practice_Problems.m in Sources */,
+				37CE3E731FD7976600117609 /* eraseme.m in Sources */,
+				376DF5761FD8CFA90024E2D4 /* NSArray+FBSuperEnumerator.m in Sources */,
 				EB4E7EFA1D9D9B90009B4C0D /* Kata4_Stack.m in Sources */,
 				EB4E7EF41D9C2F00009B4C0D /* Kata2_Arrays.m in Sources */,
 				EB68E9E31DA2E12F00734F16 /* Kata5_BinaryTree.m in Sources */,

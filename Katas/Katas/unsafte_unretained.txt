@@ -1,0 +1,130 @@
+Atomic: This means that the synthesized accessors ensure that a value is always fully retrieved by the getter method or fully set via the setter method, even if the accessors are called simultaneously from different threads.
+
+Use Unsafe Unretained References for Some Classes
+There are a few classes in Cocoa and Cocoa Touch that don’t yet support weak references, which means you can’t declare a weak property or weak local variable to keep track of them. These classes include NSTextView, NSFont and NSColorSpace; for the full list, see Transitioning to ARC Release Notes.
+
+If you need to use a weak reference to one of these classes, you must use an unsafe reference. For a property, this means using the unsafe_unretained attribute:
+
+@property (unsafe_unretained) NSObject *unsafeProperty;
+For variables, you need to use __unsafe_unretained:
+
+    NSObject * __unsafe_unretained unsafeReference;
+An unsafe reference is similar to a weak reference in that it doesn’t keep its related object alive, but it won’t be set to nil if the destination object is deallocated. This means that you’ll be left with a dangling pointer to the memory originally occupied by the now deallocated object, hence the term “unsafe.” Sending a message to a dangling pointer will result in a crash.
+
+__strong: is the default. An object remains “alive” as long as there is a strong pointer to it.
+__weak: specifies a reference that does not keep the referenced object alive. A weak reference is set to nil when there are no strong references to the object.
+Examples of weak references in Cocoa include, but are not restricted to, table data sources, outline view items, notification observers, and miscellaneous targets and delegates.
+Which classes don’t support weak references?
+
+You cannot currently create weak references to instances of the following classes:
+
+NSATSTypesetter, NSColorSpace, NSFont, NSMenuView, NSParagraphStyle, NSSimpleHorizontalTypesetter, and NSTextView.
+
+For declared properties, you should use assign instead of weak; for variables you should use __unsafe_unretained instead of __weak.
+
+__unsafe_unretained: specifies a reference that does not keep the referenced object alive and is not set to nil when there are no strong references to the object. If the object it references is deallocated, the pointer is left dangling.
+__autoreleasing: is used to denote arguments that are passed by reference (id *) and are autoreleased on return.
+You should decorate variables correctly. When using qualifiers in an object variable declaration, the correct format is:
+
+ClassName * qualifier variableName;
+for example:
+
+MyClass * __weak myWeakReference;
+MyClass * __unsafe_unretained myUnsafeReference;
+
+strong reference cycle: the two remaining strong relationships keep the two objects alive, they can't be destroy automatically by ARC
+
+The way to solve this problem is to substitute one of the strong references for a weak reference. A weak reference does not imply ownership or responsibility between two objects, and does not keep an object alive.  A weak reference does not extend the lifetime of the object it points to, and automatically becomes nil when there are no strong references to the object.
+
+
+Use Lifetime Qualifiers to Avoid Strong Reference Cycles:
+
+The following code fragment illustrates this issue using a pattern that is sometimes used in manual reference counting.
+
+MyViewController *myController = [[MyViewController alloc] init…];
+// ...
+myController.completionHandler =  ^(NSInteger result) {
+   [myController dismissViewControllerAnimated:YES completion:nil];
+};
+[self presentViewController:myController animated:YES completion:^{
+   [myController release];
+}];
+As described, instead, you can use a __block qualifier and set the myController variable to nil in the completion handler:
+
+MyViewController * __block myController = [[MyViewController alloc] init…];
+// ...
+myController.completionHandler =  ^(NSInteger result) {
+    [myController dismissViewControllerAnimated:YES completion:nil];
+    myController = nil;
+};
+Alternatively, you can use a temporary __weak variable. The following example illustrates a simple implementation:
+
+MyViewController *myController = [[MyViewController alloc] init…];
+// ...
+MyViewController * __weak weakMyViewController = myController;
+myController.completionHandler =  ^(NSInteger result) {
+    [weakMyViewController dismissViewControllerAnimated:YES completion:nil];
+};
+
+
+
+Autorelease pool: blocks provide a mechanism whereby you can relinquish ownership of an object, but avoid the possibility of it being deallocated immediately (such as when you return an object from a method).
+@autoreleasepool {
+     // Code, such as a loop that creates a large number of temporary objects.
+}
+
+Using ARC, strong, weak, and autoreleasing stack variables are now implicitly initialized with nil. For example:
+
+You enable ARC using a new -fobjc-arc compiler flag.
+you can disable ARC for a specific file using a new -fno-objc-arc compiler flag for that file.
+
+The compiler does not automatically manage the lifetimes of Core Foundation objects; you must call CFRetain and CFRelease (or the corresponding type-specific variants)
+
+_bridge transfers a pointer between Objective-C and Core Foundation with no transfer of ownership.
+__bridge_retained or CFBridgingRetain casts an Objective-C pointer to a Core Foundation pointer and also transfers ownership to you.
+You are responsible for calling CFRelease or a related function to relinquish ownership of the object.
+
+__bridge_transfer or CFBridgingRelease moves a non-Objective-C pointer to Objective-C and also transfers ownership to ARC.
+ARC is responsible for relinquishing ownership of the object.
+
+retain: 
+heisenObject = [array objectAtIndex:n];
+[array removeObjectAtIndex:n];
+// heisenObject could now be invalid.
+To protect against these situations, you retain heisenObject upon receiving it and you release it when you have finished with it. For example:
+heisenObject = [[array objectAtIndex:n] retain];
+[array removeObjectAtIndex:n];
+// Use heisenObject...
+[heisenObject release];
+
+release:
+NSMutableArray *array = <#Get a mutable array#>;
+NSUInteger i;
+// ...
+for (i = 0; i < 10; i++) {
+    NSNumber *convenienceNumber = [NSNumber numberWithInteger:i];
+    [array addObject:convenienceNumber];
+}
+In this case, you didn’t invoke alloc, so there’s no need to call release. There is no need to retain the new numbers (convenienceNumber), since the array will do so.
+
+NSMutableArray *array = <#Get a mutable array#>;
+NSUInteger i;
+// ...
+for (i = 0; i < 10; i++) {
+    NSNumber *allocedNumber = [[NSNumber alloc] initWithInteger:i];
+    [array addObject:allocedNumber];
+    [allocedNumber release];
+}
+In this case, you do need to send allocedNumber a release message within the scope of the for loop to balance the alloc. Since the array retained the number when it was added by addObject:, it will not be deallocated while it’s in the array.
+
+
+Ownership Policy Is Implemented Using Retain Counts
+
+The ownership policy is implemented through reference counting—typically called “retain count” after the retain method. Each object has a retain count.
+
+When you create an object, it has a retain count of 1.
+When you send an object a retain message, its retain count is incremented by 1.
+When you send an object a release message, its retain count is decremented by 1.
+When you send an object a autorelease message, its retain count is decremented by 1 at the end of the current autorelease pool block.
+
+If an object’s retain count is reduced to zero, it is deallocated.
