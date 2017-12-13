@@ -180,11 +180,15 @@
 @interface MergeSort:NSObject
 -(NSArray*)merge:(NSArray* )leftArray and:(NSArray*)rightArray;
 -(NSArray *)sort:(NSArray * )anArray;
+@end
 
+@interface QuickSort:NSObject
+-(NSArray * )quickSort:(NSArray*)anArray;
 @end
 
 @interface Algorithms:NSObject
 -(void)mergeSort;
+-(void) quickSort;
 @end
 /*----------------------- end Algorithms -----------------------*/
 

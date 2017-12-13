@@ -8,6 +8,7 @@
 
 #import "main.h"
 
+/*============================= MergeSort (complexity O(n log n))=============================*/
 @implementation MergeSort
 
 -(NSArray*)merge:(NSArray* )leftArray and:(NSArray*)rightArray
@@ -67,6 +68,70 @@
 
 @end
 
+
+/*============================= end MergeSort =============================*/
+
+/*============================= Quick Sort worst case complexity O(n^2))=============================*/
+
+
+
+@implementation QuickSort
+
+
+
+-(int) partition:(NSArray * )anArray Low:(int)low High:(int)high
+{
+    NSMutableArray * aMutableArray = [[NSMutableArray alloc] initWithArray:anArray];
+    [aMutableArray ]
+    NSUInteger pivot = [anArray[high] integerValue];
+    int i =  (low  -1);
+    for(int j = low; j <= high; j++ )
+        if([anArray[j] integerValue] <= pivot )
+            {}
+    return 0;
+}
+
+-(NSArray * )quickSort:(NSArray*)anArray
+{
+    if([anArray count] < 2)
+        return anArray;
+    NSMutableArray * aMutableArray = [[NSMutableArray alloc] initWithArray:anArray];
+    NSUInteger i = 0;
+    NSUInteger j = [anArray count]-1;
+    int mid = (int)(j/2);
+    id temp = nil;
+    id pivot = [anArray objectAtIndex:mid];
+    while (i<=j)
+    {
+        while ([aMutableArray[i] integerValue] < [pivot integerValue] )
+            i++;
+        while ([aMutableArray[j] integerValue] > [pivot integerValue])
+            j--;
+        
+        if(i<=j)
+        {
+            temp = aMutableArray[i];
+            [aMutableArray replaceObjectAtIndex:i withObject:aMutableArray[j]];
+            [aMutableArray replaceObjectAtIndex:j  withObject:temp];
+            i++;
+            j--;
+        }
+    }
+    
+//    NSArray * left =  [self quickSort:[aMutableArray subarrayWithRange:NSMakeRange(0,j)]];
+    
+    NSMutableArray * quickSorted = [[NSMutableArray alloc] init];
+    if(mid > 0 )
+        [quickSorted addObjectsFromArray: [self quickSort:[aMutableArray subarrayWithRange:NSMakeRange(0,mid-1)]]];
+    
+    if(mid < [anArray count])
+       [quickSorted addObjectsFromArray: [self quickSort:[aMutableArray subarrayWithRange:NSMakeRange(mid,[anArray count]-1)]]];
+    
+    return [NSArray arrayWithArray:quickSorted];
+}
+
+@end
+
 @implementation Algorithms
 
 -(void)mergeSort
@@ -77,8 +142,22 @@
     MergeSort * ms = [[MergeSort alloc]init];
     // NSArray * merged = [ms merge:myArray and:myArray2];
     NSArray * mergeSorted = [ms mergeSort:myArray];
-    NSLog(@"Merge array: %@",mergeSorted);
+    NSLog(@"Merge Sort array: %@",mergeSorted);
 }
+
+-(void) quickSort
+{
+    NSMutableArray * myArray = (NSMutableArray*)@[@2,@16,@5,@22,@1,@3,@11,@7,@12,@4,@18,@9,@0,@15,@25,@6,@21,@8,@30];
+    
+    QuickSort * qs = [[QuickSort alloc] init];
+    NSArray * quickSorted = [qs quickSort:myArray];
+    NSLog(@"Quick Sort array: %@", quickSorted);
+    
+}
+
+
+
+
 
 
 @end

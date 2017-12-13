@@ -176,11 +176,6 @@
 /*
  Write a function that takes in an array of strings and outputs a dictionary with the first character of each string as the key and the remaining characters as the object.*/
 
-/*
- 
- given an array of words, how to eliminate the duplicates?
- 
- */
 
 /*
  You have a simple tree structure Ⓐ and its clone ⓐ.
