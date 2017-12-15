@@ -19,8 +19,27 @@
     @property (nonatomic, readonly) NSArray * profileImagesArray;
     @property (nonatomic, readonly) NSString * catsURL;
 
+    @property (nonatomic) NSOperationQueue * aNSOperationQueue;
+
 -(IBAction) StartDownload:(UIBarButtonItem * )sender;
+-(IBAction) CancelDownload:(UIBarButtonItem *)sender;
+
 -(void) nonResposiveDownload;
+
+// - GCD:
+
 -(void) GCDSerialQueuesDownload;
+-(void) GCDConcurrentQueuePriorityHighDownload;
+-(void) GCDConcurrentQueuePriorityDefaultDownload;
+-(void) GCDConcurrentQueuePriorityLowDownload;
+-(void) GCDConcurrentQueuePriorityBackgroundDownload;
+-(void) GCDConcurrentCreateQueue;
+
+// - NSOperationQueue:
+
+-(void)NSOperationQueueDownload;
+-(void) NSOperationQueueDownloadWithNSBlockOperationAndCompletionBlock;
+-(void) NSOperationQueueDownloadWithNSBlockOperationAndDependency;//Emulated Serial Queue
+-(void) NSOperationQueueDownloadCancelWithNSBlockOperationAndDependency;
 
 @end

@@ -111,11 +111,28 @@
 */
 -(IBAction) StartDownload:(UIBarButtonItem * )sender
 {
+    // Grand Central Dispatch (GCD) low level C API First In First Out (FIFO)
     NSLog(@"Start download...");
 //    [self nonResposiveDownload];
 //    [self GCDSerialQueuesDownload];
-    [self GCDConcurrentQueuePriorityHighDownload];
+//    [self GCDConcurrentQueuePriorityHighDownload];
+//    [self GCDConcurrentQueuePriorityDefaultDownload];
+//    [self GCDConcurrentQueuePriorityLowDownload];
+//    [self GCDConcurrentQueuePriorityBackgroundDownload];
+//    [self GCDConcurrentCreateQueue];
     
+    // NSOperationQueue, high level, Object Oriented concurrent queues
+//    [self NSOperationQueueDownload];
+//    [self NSOperationQueueDownloadWithNSBlockOperationAndCompletionBlock];
+//    [self NSOperationQueueDownloadWithNSBlockOperationAndDependency];
+    [self NSOperationQueueDownloadCancelWithNSBlockOperationAndDependency];
+    
+    
+}
+
+-(IBAction) CancelDownload:(UIBarButtonItem *)sender
+{
+    [_aNSOperationQueue cancelAllOperations];
 }
 
 -(void) nonResposiveDownload
@@ -127,7 +144,7 @@
     for(NSNumber * catNumber in _profileImagesArray)
     {
         [_modelArray addObject:[[FeedModel alloc] initWithName:[NSString stringWithFormat:@"#Gato_%@",catNumber]
-                                                    FeedTitle:[NSString stringWithFormat:@"Cat %@ traveling there!",catNumber]
+                                                    FeedTitle:[NSString stringWithFormat:@"Cat %@ is traveling there!",catNumber]
                                                     ProfileImageURL: [NSString stringWithFormat: @"%@%@",_catsURL,catNumber]
                                                     FeedImageURL:_feedImagesArray[i++]]];
         if(i>1)i=0;
@@ -144,7 +161,7 @@
 {
     
     NSLog(@"GCDSerialQueuesDownload:..");
-    dispatch_queue_t serialQueue = dispatch_queue_create("com.feed.serial.queue",DISPATCH_QUEUE_SERIAL);
+    dispatch_queue_t serialQueue = dispatch_queue_create("com.dispatch.feed.serial.queue",DISPATCH_QUEUE_SERIAL);
     dispatch_queue_t mainQueue = dispatch_get_main_queue();
     
     int i = 0;
@@ -153,7 +170,7 @@
     {
         NSLog(@"Downloading image %@",catNumber);
         FeedModel * aFeedModel = [[FeedModel alloc] initWithName:[NSString stringWithFormat:@"#Gato_%@",catNumber]
-                                                    FeedTitle:[NSString stringWithFormat:@"Cat %@ traveling there!",catNumber]
+                                                    FeedTitle:[NSString stringWithFormat:@"Cat %@ is traveling there!",catNumber]
                                                     ProfileImageURL: [NSString stringWithFormat: @"%@%@",_catsURL,catNumber]
                                                     FeedImageURL:_feedImagesArray[i]];
         dispatch_async(mainQueue,^{
@@ -188,7 +205,7 @@
     {
         NSLog(@"Downloading image %@",catNumber);
         FeedModel * aFeedModel = [[FeedModel alloc] initWithName:[NSString stringWithFormat:@"#Gato_%@",catNumber]
-                                                       FeedTitle:[NSString stringWithFormat:@"Cat %@ traveling there!",catNumber]
+                                                       FeedTitle:[NSString stringWithFormat:@"Cat %@ is traveling there!",catNumber]
                                                  ProfileImageURL: [NSString stringWithFormat: @"%@%@",_catsURL,catNumber]
                                                     FeedImageURL:_feedImagesArray[i]];
         dispatch_async(dispatch_get_main_queue(),^{
@@ -209,6 +226,330 @@
         if(i>_feedImagesArray.count-1)i=0;
     }
     
+}
+
+-(void) GCDConcurrentQueuePriorityDefaultDownload
+{
+    NSLog(@"GCDConcurrentQueuePriorityDefaultDownload:..");
+    
+    dispatch_queue_t concurrentQueuePriorityDefautl = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    void (^addFeedBlock)(int,NSNumber *) = ^(int i, NSNumber *catNumber)
+    {
+        NSLog(@"Downloading image %@",catNumber);
+        FeedModel * aFeedModel = [[FeedModel alloc] initWithName:[NSString stringWithFormat:@"#Gato_%@",catNumber]
+                                                       FeedTitle:[NSString stringWithFormat:@"Cat %@ is traveling there!",catNumber]
+                                                 ProfileImageURL: [NSString stringWithFormat: @"%@%@",_catsURL,catNumber]
+                                                    FeedImageURL:_feedImagesArray[i]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_modelArray addObject:aFeedModel];
+            NSLog(@"Image for %@, downloaded!",aFeedModel.profileName);
+            NSLog(@"_modelArray count: %lu", (unsigned long)_modelArray.count);
+            [self.tableView reloadData];
+        });
+    };
+    
+    int i=0;
+    
+    for(NSNumber * catNumber in _profileImagesArray)
+    {
+        dispatch_async(concurrentQueuePriorityDefautl, ^{
+            addFeedBlock(i,catNumber);
+        });
+        i++;
+        if(i>_feedImagesArray.count-1)i=0;
+    }
+    
+}
+
+-(void) GCDConcurrentQueuePriorityLowDownload
+{
+    NSLog(@"GCDConcurrentQueuePriorityLowDownload:..");
+    
+    dispatch_queue_t concurrentQueuePriorityLow = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
+    
+    void (^addFeedBlock)(int, NSNumber *) = ^(int i, NSNumber *catNumber)
+    {
+        NSLog(@"Downloading image %@",catNumber);
+        FeedModel * aFeedModel = [[FeedModel alloc] initWithName:[NSString stringWithFormat:@"#Gato_%@",catNumber]
+                                                       FeedTitle:[NSString stringWithFormat:@"Cat %@ is traveling there!",catNumber]
+                                                 ProfileImageURL: [NSString stringWithFormat: @"%@%@",_catsURL,catNumber]
+                                                    FeedImageURL:_feedImagesArray[i]];
+        dispatch_async(dispatch_get_main_queue(),^{
+            [_modelArray addObject:aFeedModel];
+            NSLog(@"Image for %@, downloaded!",aFeedModel.profileName);
+            NSLog(@"_modelArray count: %lu", (unsigned long)_modelArray.count);
+            [self.tableView reloadData];
+            
+        });
+    };
+    
+    int i=0;
+    
+    for(NSNumber * catNumber in _profileImagesArray)
+    {
+        dispatch_async(concurrentQueuePriorityLow, ^{
+            addFeedBlock(i,catNumber);
+        });
+        i++;
+        if(i>_feedImagesArray.count-1)i=0;
+    }
+}
+
+-(void) GCDConcurrentQueuePriorityBackgroundDownload
+{
+    NSLog(@"GCDConcurrentQueuePriorityLowDownload:..");
+    
+    dispatch_queue_t concurrentQueuePriorityBackground = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND,0);
+    
+    void (^addFeedBlock)(int,NSNumber *) = ^(int i, NSNumber * catNumber)
+    {
+        NSLog(@"Downloading image %@",catNumber);
+        FeedModel * aFeedModel = [[FeedModel alloc] initWithName:[NSString stringWithFormat:@"#Gato_%@",catNumber]
+                                                       FeedTitle:[NSString stringWithFormat:@"Cat %@ is traveling there!",catNumber]
+                                                 ProfileImageURL: [NSString stringWithFormat: @"%@%@",_catsURL,catNumber]
+                                                    FeedImageURL:_feedImagesArray[i]];
+        dispatch_async(dispatch_get_main_queue(),^{
+            [_modelArray addObject:aFeedModel];
+            NSLog(@"Image for %@, downloaded!",aFeedModel.profileName);
+            NSLog(@"_modelArray count: %lu", (unsigned long)_modelArray.count);
+            [self.tableView reloadData];
+        });
+    };
+    
+    int i = 0;
+    
+    for(NSNumber * catNumber in _profileImagesArray)
+    {
+        dispatch_async(concurrentQueuePriorityBackground, ^{
+            addFeedBlock(i,catNumber);
+        });
+        i++;
+        if(i>_feedImagesArray.count-1) i=0;
+    }
+        
+
+}
+
+-(void) GCDConcurrentCreateQueue
+{
+    NSLog(@"GCDConcurrentCreateQueue:..");
+    
+    dispatch_queue_t concurrentQueue = dispatch_queue_create("com.dispatch.feed.concurrent.queue", DISPATCH_QUEUE_CONCURRENT);
+    
+    void (^addFeedBlock)(int,NSNumber *) = ^(int i, NSNumber * catNumber){
+        NSLog(@"Downloading image %@",catNumber);
+        FeedModel * aFeedModel = [[FeedModel alloc] initWithName:[NSString stringWithFormat:@"#Gato_%@",catNumber]
+                                                    FeedTitle:[NSString stringWithFormat:@"Cat %@ is traveling there!",catNumber]
+                                                    ProfileImageURL: [NSString stringWithFormat: @"%@%@",_catsURL,catNumber]
+                                                    FeedImageURL:_feedImagesArray[i]];
+        
+        dispatch_async(dispatch_get_main_queue(),^{
+            [_modelArray addObject:aFeedModel];
+            NSLog(@"Image for %@, downloaded!",aFeedModel.profileName);
+            NSLog(@"_modelArray count: %lu", (unsigned long)_modelArray.count);
+            [self.tableView reloadData];
+        });
+    };
+    
+    int i = 0;
+    
+    for(NSNumber * catNumber in _profileImagesArray)
+    {
+        dispatch_async(concurrentQueue,^{
+            addFeedBlock(i,catNumber);
+        });
+        
+        i++;
+        if(i>_feedImagesArray.count-1) i=0;
+    }
+}
+
+-(void)NSOperationQueueDownload//concurrent
+{
+    NSLog(@"NSOperationQueueDownload:..");
+
+    NSOperationQueue * aNSOperationQueue = [[NSOperationQueue alloc] init];
+    
+    void (^addFeedBlock)(int, NSNumber *) = ^(int i, NSNumber *catNumber)
+    {
+        FeedModel * aFeedModel = [[FeedModel alloc] initWithName:[NSString stringWithFormat:@"#Gato_%@",catNumber]
+                                                       FeedTitle:[NSString stringWithFormat:@"Cat %@ is traveling there!",catNumber]
+                                                 ProfileImageURL: [NSString stringWithFormat: @"%@%@",_catsURL,catNumber]
+                                                    FeedImageURL:_feedImagesArray[i]];
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [_modelArray addObject:aFeedModel];
+            NSLog(@"Image for %@, downloaded!",aFeedModel.profileName);
+            NSLog(@"_modelArray count: %lu", (unsigned long)_modelArray.count);
+            [self.tableView reloadData];
+        }];
+        
+    };
+    int i = 0;
+    for(NSNumber * catNumber in _profileImagesArray)
+    {
+        
+        [aNSOperationQueue addOperationWithBlock: ^{
+            addFeedBlock(i, catNumber);
+        }];
+        i++;
+        if(i>_feedImagesArray.count-1) i=0;
+    }
+}
+
+-(void) NSOperationQueueDownloadWithNSBlockOperationAndCompletionBlock
+{
+    NSLog(@"NSOperationQueueDownloadWithNSBlockOperationAndCompletionBlock:..");
+    
+    NSOperationQueue * aNSOperationQueue = [[NSOperationQueue alloc] init];
+    
+    void (^addFeedBlock)(int,NSNumber * ) = ^(int i, NSNumber * catNumber)
+    {
+        FeedModel * aFeedModel = [[FeedModel alloc] initWithName:[NSString stringWithFormat:@"#Gato_%@",catNumber]
+                                                       FeedTitle:[NSString stringWithFormat:@"Cat %@ is traveling there!",catNumber]
+                                                 ProfileImageURL: [NSString stringWithFormat: @"%@%@",_catsURL,catNumber]
+                                                    FeedImageURL:_feedImagesArray[i]];
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock: ^{
+            [_modelArray addObject:aFeedModel];
+            NSLog(@"Image for %@, downloaded!",aFeedModel.profileName);
+
+        }];
+    };
+    
+    int i = 0;
+    
+    for(NSNumber * catNumber in _profileImagesArray)
+    {
+        
+        NSBlockOperation * aNSBlockOperation = [NSBlockOperation blockOperationWithBlock:^{ addFeedBlock(i, catNumber);}];
+        
+        [aNSBlockOperation setCompletionBlock:^{
+            NSLog(@"_modelArray count: %lu", (unsigned long)_modelArray.count);
+            [self.tableView reloadData];
+        }];
+        
+        [aNSOperationQueue addOperation:aNSBlockOperation];
+        
+        i++;
+        if(i>_feedImagesArray.count-1) i=0;
+        
+    }
+}
+
+-(void) NSOperationQueueDownloadWithNSBlockOperationAndDependency//Emulated Serial Queue
+{
+    NSLog(@"NSOperationQueueDownloadWithNSBlockOperationAndDependency:..");
+    
+    NSOperationQueue * aNSOperationQueue = [[NSOperationQueue alloc] init];
+    
+    void (^addFeedModel)(int,NSNumber * ) = ^(int i, NSNumber * catNumber)
+    {
+        FeedModel * aFeedModel = [[FeedModel alloc] initWithName:[NSString stringWithFormat:@"#Gato_%@",catNumber]
+                                                       FeedTitle:[NSString stringWithFormat:@"Cat %@ is traveling there!",catNumber]
+                                                 ProfileImageURL: [NSString stringWithFormat: @"%@%@",_catsURL,catNumber]
+                                                    FeedImageURL:_feedImagesArray[i]];
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock: ^{
+            [_modelArray addObject:aFeedModel];
+            NSLog(@"Image for %@, downloaded!",aFeedModel.profileName);
+            
+        }];
+    };
+    
+    int i = 0;
+    
+    NSMutableArray<NSOperation*> * aNSOperationArray = [[NSMutableArray alloc] init];
+    
+    for(NSNumber * catNumber in _profileImagesArray)
+    {
+        NSBlockOperation * aNSBlockOperation = [NSBlockOperation blockOperationWithBlock: ^{addFeedModel(i,catNumber);}];
+        
+        [aNSBlockOperation setCompletionBlock: ^{
+            NSLog(@"_modelArray count: %lu", (unsigned long)_modelArray.count);
+            [self.tableView reloadData];
+        }];
+        
+        [aNSOperationArray addObject:aNSBlockOperation];
+        i++;
+        if(i>_feedImagesArray.count-1) i=0;
+    }
+    
+    NSEnumerator * anEnumerator = [aNSOperationArray objectEnumerator];
+    
+    id anObject = nil;
+    id previousObject = nil;
+    
+    while((anObject = [anEnumerator nextObject]))
+    {
+        if(previousObject)
+        {
+            [anObject addDependency:previousObject];
+        }
+    }
+    
+    [aNSOperationQueue addOperations: aNSOperationArray waitUntilFinished:NO];
+    
+}
+
+
+-(void) NSOperationQueueDownloadCancelWithNSBlockOperationAndDependency
+{
+    NSLog(@"NSOperationQueueDownloadCancelWithNSBlockOperationAndDependency:..");
+    
+//    NSOperationQueue * aNSOperationQueue = [[NSOperationQueue alloc] init];
+    _aNSOperationQueue = [[NSOperationQueue alloc] init];
+
+    void (^addFeedBlock)(int,NSNumber *) = ^(int i,NSNumber * catNumber)
+    {
+        FeedModel * aFeedModel = [[FeedModel alloc] initWithName:[NSString stringWithFormat:@"#Gato_%@",catNumber]
+                                                       FeedTitle:[NSString stringWithFormat:@"Cat %@ is traveling there!",catNumber]
+                                                 ProfileImageURL: [NSString stringWithFormat: @"%@%@",_catsURL,catNumber]
+                                                    FeedImageURL:_feedImagesArray[i]];
+        [[NSOperationQueue mainQueue] addOperationWithBlock: ^{
+            [_modelArray addObject:aFeedModel];
+            NSLog(@"Image for %@, downloaded!",aFeedModel.profileName);
+        }];
+    };
+    
+    int i = 0;
+    NSMutableArray * operationsArray = [[NSMutableArray alloc] init];
+    
+    for(NSNumber * catNumber in _profileImagesArray)
+    {
+        NSBlockOperation * aNSBlockOperation = [NSBlockOperation blockOperationWithBlock:^{ addFeedBlock(i,catNumber);}];
+        [aNSBlockOperation setCompletionBlock:^{
+            if([aNSBlockOperation isCancelled] == YES)
+            {
+                NSLog(@"--> cat %@ operation is cancelled! :(",catNumber);
+            }
+            else
+            {
+                NSLog(@"_modelArray count: %lu", (unsigned long)_modelArray.count);
+                [self.tableView reloadData];
+            }
+        }];
+        
+        [operationsArray addObject:aNSBlockOperation];
+        [_aNSOperationQueue addOperation:aNSBlockOperation];
+        
+        i++;
+        if(i>_feedImagesArray.count-1) i=0;
+    }
+    
+    NSEnumerator * aNSEnumarator = [operationsArray objectEnumerator];
+    id anObject = nil;
+    id previusObject = nil;
+    
+    while((anObject = [aNSEnumarator nextObject]))
+    {
+        if(previusObject)
+        {
+            [anObject addDependency:previusObject];
+        }
+    }
 }
 
 @end
