@@ -82,12 +82,12 @@
 -(int) partition:(NSArray * )anArray Low:(int)low High:(int)high
 {
     NSMutableArray * aMutableArray = [[NSMutableArray alloc] initWithArray:anArray];
-    [aMutableArray ]
-    NSUInteger pivot = [anArray[high] integerValue];
-    int i =  (low  -1);
-    for(int j = low; j <= high; j++ )
-        if([anArray[j] integerValue] <= pivot )
-            {}
+//    [aMutableArray ]
+//    NSUInteger pivot = [anArray[high] integerValue];
+//    int i =  (low  -1);
+//    for(int j = low; j <= high; j++ )
+//        if([anArray[j] integerValue] <= pivot )
+//            {}
     return 0;
 }
 

@@ -519,6 +519,209 @@
     return aMutableArray;
 }
 
+
+-(NSString * ) problem_16_returnSortedAlphabetsAndSumFromString: (NSString * )aString
+{
+    /*Given a string containing uppercase alphabets and integer digits (from 0 to 9), the task is to print the alphabets in the order followed by the sum of digits.
+     Ex:
+     inputs:
+     
+     AC2BEW3
+     ACCBA10D2EW30
+     
+     outputs:
+     
+     ABCEW5
+     AABCCDEW6
+     
+     */
+    
+    NSDictionary * numbersDictionary = @{@"0":@0,@"1":@1,@"2":@2,@"3":@3,@"4":@4,@"5":@5,@"6":@6,@"7":@7,@"8":@8,@"9":@9};
+    
+    NSMutableArray *alphabetArray =  [[NSMutableArray alloc] init];
+    
+    for(char i = 'A';  i<= 'Z'; i++)
+    {
+        [alphabetArray addObject:[NSString stringWithFormat:@"%c",i]];
+    }
+    
+    NSMutableDictionary * alphabetDictionary = [[NSMutableDictionary alloc] init];
+    
+    
+    int sum = 0;
+    
+    for(int  i = 0 ;i< [aString length] ; i++ )
+    {
+        int  n = 0;
+        NSString * aChar = [aString substringWithRange:NSMakeRange(i,1)];
+        if( ( n = [[numbersDictionary objectForKey:aChar]  intValue]) )
+        {
+            sum += n;
+        }
+        else
+        {
+            int repeated = 0;
+            if( (repeated = [[alphabetDictionary objectForKey: aChar] intValue]) )
+            {
+                repeated+=1;
+                [alphabetDictionary setValue:@(repeated) forKey:aChar];
+
+            }
+            else
+                [alphabetDictionary setObject:@(1) forKey:aChar];
+        }
+    }
+    
+    
+    NSMutableString * aMutableString = [[NSMutableString alloc] init];
+    
+    for (NSString * key in alphabetArray)
+    {
+        int times = [[alphabetDictionary objectForKey:key] intValue];
+        for (int i = 0; i<times; i++)
+            [aMutableString appendString: key];
+    }
+    
+    [aMutableString appendFormat:@"%i",sum];
+    return [NSString stringWithString: aMutableString];
+}
+
+-(NSString * ) problem_16_2_returnSortedAlphabetsAndSumFromString: (NSString * )aString //this is better
+{
+    /*Given a string containing uppercase alphabets and integer digits (from 0 to 9), the task is to print the alphabets in the order followed by the sum of digits.
+     Ex:
+     inputs:
+     
+     AC2BEW3
+     ACCBA10D2EW30
+     
+     outputs:
+     
+     ABCEW5
+     AABCCDEW6
+     
+     */
+    
+    NSDictionary * numbersDictionary = @{@"0":@0,@"1":@1,@"2":@2,@"3":@3,@"4":@4,@"5":@5,@"6":@6,@"7":@7,@"8":@8,@"9":@9};
+    
+    NSMutableDictionary * alphabetOcurrencesDictionary = [[NSMutableDictionary alloc] init];
+    
+    int sum = 0;
+    
+    for(int  i = 0 ;i< [aString length] ; i++ )
+    {
+        NSString * aChar = [aString substringWithRange:NSMakeRange(i,1)];
+        
+        if([aString characterAtIndex:i] >= 'A' && [aString characterAtIndex:i]<= 'Z')
+            // if(aChar >= @'A' && aChar <= @'Z')
+        {
+            
+            int repeated = 0;
+            
+            if( (repeated = [[alphabetOcurrencesDictionary objectForKey: aChar] intValue]) )
+            {
+                repeated+=1;
+                [alphabetOcurrencesDictionary setValue:@(repeated) forKey: aChar];
+            }
+            else
+            {
+                [alphabetOcurrencesDictionary setObject:@(1) forKey:aChar];
+            }
+        }
+        else
+        {
+            sum += [ [numbersDictionary objectForKey:aChar] intValue];
+        }
+    }
+    
+    NSMutableString * aMutableString = [[NSMutableString alloc] init];
+    
+    for(char c = 'A'; c<='Z'; c++)
+    {
+        NSString * aStringCharKey = [NSString stringWithFormat:@"%c",c];
+        int times = [[alphabetOcurrencesDictionary objectForKey:aStringCharKey] intValue];
+        for (int i = 0; i<times; i++)
+            [aMutableString appendString: aStringCharKey];
+    }
+    
+    [aMutableString appendFormat:@"%i",sum];
+    return [NSString stringWithString: aMutableString];
+}
+
+
+
+-(NSArray *) problem_17_largestSubArrayWithAtLeastKNumbersInArray:(NSArray *) anArray andK:(int)k // with Kadanes lagorithms
+{
+    /*Largest sum subarray with at-least k numbers
+     
+     Given an array, find the subarray 'contiguous' (containing at least k numbers) which has the largest sum.
+     
+     Examples:
+     
+     Input : arr[] = {-4, -2, 1, -3}
+     k = 2
+     Output : -1
+     The sub array is {-2, 1}
+     
+     Input : arr[] = {1, 1, 1, 1, 1, 1}
+     k = 2
+     Output : 6
+     The sub array is {1, 1, 1, 1, 1, 1}
+     */
+    
+    
+    int maxCurrentIndex = 0;
+    int maxGlobalIndex = 0;
+    
+    int maxCurrent = [ anArray[0] intValue];
+    int maxGlobal = [ anArray[0] intValue];
+    
+    for(int i = 1; i< anArray.count; i++ )
+    {
+        
+        int newMaxCurent = maxCurrent + [ anArray[i] intValue];
+        // NSLog(@" [ %i ]  > %i + [ %i ] ",[anArray[i] intValue],[anArray[i] intValue],maxCurrent);
+        
+        if([anArray[i] intValue] > newMaxCurent  && maxGlobalIndex - maxCurrentIndex >= k)
+        {
+            maxCurrent = [anArray[i] intValue];
+            maxCurrentIndex = i;
+        }
+        else
+        {
+            maxCurrent = newMaxCurent;
+        }
+        
+        
+        if(maxCurrent > maxGlobal  )
+        {
+            maxGlobal = maxCurrent;
+            maxGlobalIndex = i;
+        }
+        
+        //       NSLog(@" maxCurrent sum: %i",maxCurrent);
+        //       NSLog(@" maxGlobal sum: %i",maxGlobal);
+        //       NSLog(@" newMaxCurent sum: %i",newMaxCurent);
+        //       NSLog(@"indexDiference : %i",maxGlobalIndex-maxCurrentIndex);
+        //       NSLog(@" ------------Gi: %i Ci: %i",maxGlobalIndex,maxCurrentIndex);
+        
+    }
+    
+    
+    NSLog(@"Kadanes K bigger sum: %i",maxGlobal);
+    
+    if(k >= anArray.count)
+        return anArray;
+    
+    if(maxGlobalIndex - maxCurrentIndex+1 < k)
+        return [self problem_17_largestSubArrayWithAtLeastKNumbersInArray:[anArray subarrayWithRange:NSMakeRange(1,anArray.count-1)] andK:k];
+    else
+        return [anArray subarrayWithRange:NSMakeRange(maxCurrentIndex,maxGlobalIndex-maxCurrentIndex+1)];
+    
+    
+}
+
+
 @end
 
 

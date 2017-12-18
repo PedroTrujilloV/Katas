@@ -225,6 +225,9 @@
 -(void) problem_12_isIndeedABinaryTree;
 -(void) problem_13_FBSuperEnumerator;
 -(NSArray* ) problem_15_removeDuplicatesInArray:(NSArray * )anArray;
+-(NSString * ) problem_16_returnSortedAlphabetsAndSumFromString: (NSString * )aString;
+-(NSString * ) problem_16_2_returnSortedAlphabetsAndSumFromString: (NSString * )aString; //this is better
+-(NSArray *) problem_17_largestSubArrayWithAtLeastKNumbersInArray:(NSArray *) anArray andK:(int)k; // with Kadanes lagorithms
 
 @end
 

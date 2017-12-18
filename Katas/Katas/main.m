@@ -68,7 +68,7 @@ int main(int argc, const char * argv[]) {
         
         Algorithms * algorithmsDemo = [[Algorithms alloc]init];
 //        [algorithmsDemo mergeSort];
-        [algorithmsDemo quickSort];
+//        [algorithmsDemo quickSort];
         
         Practice_Problems * questions = [[Practice_Problems alloc]init];
         
@@ -130,6 +130,20 @@ int main(int argc, const char * argv[]) {
 //        NSLog(@"with duplicates: %@", myArray);
 //        NSLog(@"without duplicates: %@",[questions problem_15_removeDuplicatesInArray:myArray]);
 
+//        NSLog(@" sorted Alphabet and sum of digits in string ACCBA10D2EW30: %@",[questions problem_16_2_returnSortedAlphabetsAndSumFromString:@"ACCBA10D2EW30"]);
+        
+        NSArray * myArray = [[NSArray alloc] initWithObjects: @(-4), @(-2), @(1), @(-3),nil];
+        
+        NSLog(@"My array: %@",myArray);
+        
+        int k = 2;
+        
+        NSArray *  mySubArray = [questions problem_17_largestSubArrayWithAtLeastKNumbersInArray:myArray andK:k];
+        
+        NSLog(@"My array bigger sub array sum with at least k=%i elements is: %@",k,mySubArray);
+        
+        
+        
         
     }
     return 0;
