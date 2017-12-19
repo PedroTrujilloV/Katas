@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#include "main.h"
 
 @interface Kata1_DataTypes : NSObject
     
@@ -228,7 +229,7 @@
 -(NSString * ) problem_16_returnSortedAlphabetsAndSumFromString: (NSString * )aString;
 -(NSString * ) problem_16_2_returnSortedAlphabetsAndSumFromString: (NSString * )aString; //this is better
 -(NSArray *) problem_17_largestSubArrayWithAtLeastKNumbersInArray:(NSArray *) anArray andK:(int)k; // with Kadanes lagorithms
-
+-(NSArray *) problem_18_findLargestSubsequenceFibonacci:(NSArray * )anArray;
 @end
 
 

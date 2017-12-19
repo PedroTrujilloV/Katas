@@ -8,6 +8,7 @@
 
 #import "main.h"
 
+
 @implementation Practice_Problems
 
 -(int)problem_1_moveAllZeros:(NSArray*)givenArray
@@ -721,6 +722,29 @@
     
 }
 
+BOOL isPerfectRoot(int n)
+{
+    int sqr = sqrt(n); // int remove the decimal units if this number is not a perfect root
+    return ( (sqr*sqr) == n);
+}
+
+BOOL isFibonacci(int n)
+{//https://en.wikipedia.org/wiki/Fibonacci_number#Recognizing Fibonacci numbers
+    return (isPerfectRoot((5*(n*n))+4) || isPerfectRoot((5*(n*n))-4));
+}
+
+-(NSArray *) problem_18_findLargestSubsequenceFibonacci:(NSArray * )anArray
+{
+    NSMutableArray * subSequenceF = [[NSMutableArray alloc] init];
+    
+    for(id i in anArray)
+    {
+        if( isFibonacci([i intValue]) )
+            [subSequenceF addObject:i];
+    }
+    
+    return [NSArray arrayWithArray:subSequenceF];
+}
 
 @end
 

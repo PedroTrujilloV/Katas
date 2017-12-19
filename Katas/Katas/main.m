@@ -132,15 +132,21 @@ int main(int argc, const char * argv[]) {
 
 //        NSLog(@" sorted Alphabet and sum of digits in string ACCBA10D2EW30: %@",[questions problem_16_2_returnSortedAlphabetsAndSumFromString:@"ACCBA10D2EW30"]);
         
-        NSArray * myArray = [[NSArray alloc] initWithObjects: @(-4), @(-2), @(1), @(-3),nil];
+//        NSArray * myArray = [[NSArray alloc] initWithObjects: @(-4), @(-2), @(1), @(-3),nil];
+//        
+//        NSLog(@"My array: %@",myArray);
+//        
+//        int k = 2;
+//        
+//        NSArray *  mySubArray = [questions problem_17_largestSubArrayWithAtLeastKNumbersInArray:myArray andK:k];
+//        
+//        NSLog(@"My array bigger sub array sum with at least k=%i elements is: %@",k,mySubArray);
         
-        NSLog(@"My array: %@",myArray);
+        NSArray * myArray = [ [NSArray alloc] initWithObjects: @1, @4, @3, @9, @10, @13, @7, nil];
+        // NSArray * myArray = [ [NSArray alloc] initWithObjects: @0,@2,@8,@5,@2,@1,@4,@13,@23, nil];
         
-        int k = 2;
-        
-        NSArray *  mySubArray = [questions problem_17_largestSubArrayWithAtLeastKNumbersInArray:myArray andK:k];
-        
-        NSLog(@"My array bigger sub array sum with at least k=%i elements is: %@",k,mySubArray);
+        NSArray * subSequence = [questions problem_18_findLargestSubsequenceFibonacci:myArray];
+        NSLog(@"sub sequence fibonacci of %@ is: %@",myArray,subSequence);
         
         
         
