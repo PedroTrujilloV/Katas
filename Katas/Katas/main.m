@@ -9,12 +9,14 @@
 
 
 
+
+         
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
         NSLog(@"Hello, World!");
         
-        // DataTypes
+               // DataTypes
         
         //Kata1_DataTypes *kata1 = [[Kata1_DataTypes alloc]init];
         
@@ -142,12 +144,32 @@ int main(int argc, const char * argv[]) {
 //        
 //        NSLog(@"My array bigger sub array sum with at least k=%i elements is: %@",k,mySubArray);
         
-        NSArray * myArray = [ [NSArray alloc] initWithObjects: @1, @4, @3, @9, @10, @13, @7, nil];
-        // NSArray * myArray = [ [NSArray alloc] initWithObjects: @0,@2,@8,@5,@2,@1,@4,@13,@23, nil];
+//        NSArray * myArray = [ [NSArray alloc] initWithObjects: @1, @4, @3, @9, @10, @13, @7, nil];
+//        // NSArray * myArray = [ [NSArray alloc] initWithObjects: @0,@2,@8,@5,@2,@1,@4,@13,@23, nil];
+//        
+//        NSArray * subSequence = [questions problem_18_findLargestSubsequenceFibonacci:myArray];
+//        NSLog(@"sub sequence fibonacci of %@ is: %@",myArray,subSequence);
+//         NSString * aWord = @"race car";
         
-        NSArray * subSequence = [questions problem_18_findLargestSubsequenceFibonacci:myArray];
-        NSLog(@"sub sequence fibonacci of %@ is: %@",myArray,subSequence);
+//        NSString * aWord = @"abcaa";
         
+        
+//        BOOL ispalindrome = [questions problem_19_isPalindrome:aWord];
+//        
+//        NSLog(@"is %@ palindrome?: %i",aWord, ispalindrome);
+        
+//        NSArray * arrayA = @[@-1, @-2, @4, @-6, @5, @7];
+//        NSArray * arrayB = @[@6, @3, @4, @0];
+//        int x = 8;
+//        NSArray * pairs = [questions problem_20_pairsWithAGivenSumBetweenArrayElementsArraA:arrayA andArrayB:arrayB withNumber:x];
+//        
+//        NSLog(@"pairs of %@ and %@ are have pairs whose sum %i: %@",arrayA,arrayB, x, pairs);
+        
+        int n = 1559;
+        // int n = 34;
+        NSString * roman = [questions problem_21_integerToRoman:n];
+
+        NSLog(@" %i to roman is: %@",n,roman);
         
         
         

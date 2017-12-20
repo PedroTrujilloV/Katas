@@ -735,6 +735,11 @@ BOOL isFibonacci(int n)
 
 -(NSArray *) problem_18_findLargestSubsequenceFibonacci:(NSArray * )anArray
 {
+    //largest subsequence Fibonacci numbers
+    
+    //Given an array with positive number the task to find the largest subsequence from array that contain elements which are Fibonacci numbers.
+    
+
     NSMutableArray * subSequenceF = [[NSMutableArray alloc] init];
     
     for(id i in anArray)
@@ -745,6 +750,103 @@ BOOL isFibonacci(int n)
     
     return [NSArray arrayWithArray:subSequenceF];
 }
+
+-(BOOL) problem_19_isPalindrome:(NSString *)aString
+{
+    if(aString.length <=1)
+        return YES;
+    
+    int i = 0;
+    int j = (int)([aString length])  -1;
+    
+    if([aString characterAtIndex:i] == ' ')
+        return [self problem_19_isPalindrome:[aString substringFromIndex:i+1]];
+    if([aString characterAtIndex:j] == ' ')
+        return  [self problem_19_isPalindrome:[aString substringToIndex:j-1]];
+    
+    NSString *subString = [aString substringWithRange:NSMakeRange(i+1,j-1)];
+    
+    
+    
+    return ([aString characterAtIndex:i] == [aString characterAtIndex:j] ) && [self problem_19_isPalindrome:subString ];
+    
+}
+
+-(NSArray *) problem_20_pairsWithAGivenSumBetweenArrayElementsArraA:(NSArray *) arrayA andArrayB:(NSArray *) arrayB withNumber:( int )x
+{
+    // Find all pairs with a given sum
+    //Given two unsorted arrays A[] of size n and B[] of size m of distinct elements, the task is to find all pairs from both arrays whose sum is equal to x. O(n)
+    
+    // Input :  A[] = {-1, -2, 4, -6, 5, 7}
+    //          B[] = {6, 3, 4, 0}
+    //          x = 8
+    // Output : 4 4, 5 3
+    
+    NSMutableDictionary<NSNumber *,id> * diferencesDict = [[NSMutableDictionary alloc] init];
+    
+    NSMutableArray * pairs = [[NSMutableArray alloc] init];
+    
+    for(id a in arrayA)
+    {
+        int aDif = x - [a intValue];
+        [diferencesDict setObject:a forKey:@(aDif)];
+    }
+    
+    for(id b in arrayB)
+    {
+        id pair = nil;
+        if((pair = [diferencesDict objectForKey:b] ) )
+            [pairs addObject:@[b,pair]];
+        
+    }
+    return (NSArray *)pairs;
+}
+
+
+-(NSString *) problem_21_integerToRoman:(int )n
+{
+    NSMutableString * romanNumber = [[NSMutableString alloc] init];
+    NSDictionary * romanTable = @{@1:@"I",
+                                  @2:@"II",
+                                  @3:@"III",
+                                  @4:@"IV",
+                                  @5:@"V",
+                                  @6:@"VI",
+                                  @7:@"VII",
+                                  @8:@"VIII",
+                                  @9:@"IX",
+                                  @10:@"X",
+                                  @50:@"L",
+                                  @100:@"C",
+                                  @500:@"D",
+                                  @1000:@"M",};
+    int i = n;
+    int d = n;
+    int m = 10;
+    int mult = 1;
+    
+    while(n != 0)
+    {
+        i = n % m;
+        d = (int)(i/mult);
+        
+        id romanChar = nil;
+        if(!(romanChar = [romanTable objectForKey:@(i)]))
+            for(int j = 0; j<d; j++)
+                romanNumber = (NSMutableString *)[NSString stringWithFormat:@"%@%@",[romanTable objectForKey:@(mult)],romanNumber];
+        else
+            romanNumber = (NSMutableString *)[NSString stringWithFormat:@"%@%@",romanChar,romanNumber];
+        
+        
+        mult *= 10;
+        m *= 10;
+        n = n - i;
+        
+    }
+    
+    return (NSString *)romanNumber;
+}
+
 
 @end
 

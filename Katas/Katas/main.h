@@ -230,6 +230,10 @@
 -(NSString * ) problem_16_2_returnSortedAlphabetsAndSumFromString: (NSString * )aString; //this is better
 -(NSArray *) problem_17_largestSubArrayWithAtLeastKNumbersInArray:(NSArray *) anArray andK:(int)k; // with Kadanes lagorithms
 -(NSArray *) problem_18_findLargestSubsequenceFibonacci:(NSArray * )anArray;
+-(BOOL) problem_19_isPalindrome:(NSString *)aString;
+-(NSArray *) problem_20_pairsWithAGivenSumBetweenArrayElementsArraA:(NSArray *) arrayA andArrayB:(NSArray *) arrayB withNumber:( int )x;
+-(NSString *) problem_21_integerToRoman:(int )n;
+
 @end
 
 
