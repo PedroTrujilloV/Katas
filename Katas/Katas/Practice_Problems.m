@@ -20,27 +20,52 @@
     // This problems has a time complexity of O(n)
     
     NSLog(@"given array before: %@", givenArray);
-    
+
     NSMutableArray * anArray = [NSMutableArray arrayWithArray:givenArray];
-    
+
     NSLog(@"anArray: %@",anArray);
-    
+
     int counter =  0;
-    
+
     for(int i = 0 ; i < anArray.count; i++ )
         if([[anArray objectAtIndex:i] intValue] != 0 )
         {
             [anArray replaceObjectAtIndex:counter withObject:[[anArray objectAtIndex:i] copy]];
             counter++;
         }
-    
+
     for(int i = counter ; i < anArray.count; i++ )
         [anArray replaceObjectAtIndex:i withObject:@(0)];
-    
+
     NSLog(@"anArray: %@",anArray);
-    
+
     return counter;
-    
+
+//    other way
+/*    NSMutableArray * mutableArrayEx = [givenArray mutableCopy];
+
+    int i = 0;
+    int j = 0;
+    int c = 0;
+
+    for(id x in givenArray)
+    {
+        if([mutableArrayEx[j] integerValue] == 0 )
+        {
+            mutableArrayEx[i] = mutableArrayEx[j];
+            mutableArrayEx[j] = @0;
+            i = j;
+            c += 1;
+        }
+
+
+        j += 1;
+
+    }
+
+    return (int)[givenArray count] - c;
+ */
+
 }
 
 -(BOOL) problem_2_pairInArray:(NSArray*)givenArray sumThisInt:(int)intNum
@@ -57,8 +82,24 @@
                 return YES;
         startAtIndex++;
     }
-    
+
     return NO;
+    
+    //    other way
+/*    NSMutableDictionary * allDifferences = [[NSMutableDictionary alloc] init];
+    for( id x in givenArray)
+    {
+        int aDifference = intNum - (int)[x integerValue] ;
+        if([allDifferences objectForKey: @(aDifference)])
+        {
+            return YES;
+        }
+        [allDifferences setObject:@(intNum) forKey:@(aDifference)];
+
+    }
+    return NO;
+ */
+
 }
 
 

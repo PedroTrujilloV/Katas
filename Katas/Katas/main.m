@@ -68,21 +68,21 @@ int main(int argc, const char * argv[]) {
 //        [kata6 dictionaryImplementation];
         
         
-        Algorithms * algorithmsDemo = [[Algorithms alloc]init];
+//        Algorithms * algorithmsDemo = [[Algorithms alloc]init];
 //        [algorithmsDemo mergeSort];
 //        [algorithmsDemo quickSort];
         
         Practice_Problems * questions = [[Practice_Problems alloc]init];
         
-//        NSArray * givenArray = [NSArray arrayWithObjects:@6,@2,@1,@4,@0,@0,@1,@5,@0,@0,@3, nil];
+        NSArray * givenArray = [NSArray arrayWithObjects:@6,@2,@1,@4,@0,@0,@1,@5,@0,@0,@3, nil];
         
 //        int answer = [questions problem_1_moveAllZeros:givenArray];
         
 //        NSLog(@"answer: %i",answer);
         
-//        BOOL answer = [questions problem_2_pairInArray:givenArray sumThisInt:7];
+        BOOL answer = [questions problem_2_pairInArray:givenArray sumThisInt:7];
         
-//        NSLog(@"answer: %hhd",answer);
+        NSLog(@"answer: %hhd",answer);
         
         //100101 + 10101 = 111010
         
@@ -165,11 +165,11 @@ int main(int argc, const char * argv[]) {
 //        
 //        NSLog(@"pairs of %@ and %@ are have pairs whose sum %i: %@",arrayA,arrayB, x, pairs);
         
-        int n = 1559;
-        // int n = 34;
-        NSString * roman = [questions problem_21_integerToRoman:n];
-
-        NSLog(@" %i to roman is: %@",n,roman);
+//        int n = 1559;
+//        // int n = 34;
+//        NSString * roman = [questions problem_21_integerToRoman:n];
+//
+//        NSLog(@" %i to roman is: %@",n,roman);
         
         
         
